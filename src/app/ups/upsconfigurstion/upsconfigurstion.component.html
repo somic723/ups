@@ -1,0 +1,119 @@
+<mat-grid-list cols="1" rowHeight="1:1.2">
+
+
+
+
+    <mat-grid-tile >
+
+        <form class="example-form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      
+            
+          
+        <mat-form-field style="margin-right:20px" appearance="fill">
+
+            <mat-label>InputPutVolt</mat-label>
+            <mat-select name="InputPutVolt" ngModel required #InputPutVolt="ngModel">
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+        <mat-form-field style="margin-right:20px" appearance="fill">
+
+            <mat-label>InputPutFreq</mat-label>
+            <mat-select name="InputPutFreq" ngModel required #InputPutFreq="ngModel">
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+        <mat-form-field style="margin-right:20px" appearance="fill">
+
+            <mat-label>OutPutVolt</mat-label>
+            <mat-select name="OutPutVolt" ngModel required #OutPutVolt="ngModel">
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+        <mat-form-field style="margin-right:20px" appearance="fill">
+
+            <mat-label>OutPutFreq</mat-label>
+            <mat-select name="OutPutFreq" ngModel required #OutPutFreq="ngModel">
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field style="margin-right:20px"  appearance="fill">
+            <mat-label>LowBatt</mat-label>
+          <mat-select name="LowBatt" ngModel required #LowBatt="ngModel">
+            <mat-option value="option">Option</mat-option>
+          </mat-select>
+        </mat-form-field>
+          
+        <mat-form-field appearance="fill">
+
+            <mat-label>LowVolt</mat-label>
+            <mat-select name="LowVolt" ngModel required #LowVolt="ngModel">
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+        <mat-form-field style="margin-right:20px" appearance="fill">
+
+            <mat-label>HighVolt</mat-label>
+            <mat-select name="HighVolt" ngModel required #HighVolt="ngModel">
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+          <mat-form-field appearance="fill">
+
+            <mat-label>BattCapacity</mat-label>
+            <mat-select name="BattCapacity" ngModel required #BattCapacity="ngModel">
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field style="margin-right:20px" appearance="fill">
+
+            <mat-label>OutPutVA</mat-label>
+            <mat-select name="OutPutVA" ngModel required #OutPutVA="ngModel">
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+
+          <mat-form-field appearance="fill">
+
+            <mat-label>OutPutPower</mat-label>
+            <mat-select name="OutPutPower" ngModel required #OutPutPower="ngModel">
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field style="margin-left:110px" appearance="fill">
+
+            <mat-label>AudibleStatus</mat-label>
+            <mat-select name="AudibleStatus" ngModel required #AudibleStatus="ngModel">
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+          </mat-form-field>
+<br>
+          <button mat-raised-button color="primary" type="submit">Submit</button>
+<br>
+  
+    </form>
+
+           
+
+
+
+         
+        
+        
+     
+    </mat-grid-tile>
+  
+
+
+  
+  
+  </mat-grid-list>

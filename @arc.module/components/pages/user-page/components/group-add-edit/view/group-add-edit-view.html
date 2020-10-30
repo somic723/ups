@@ -1,0 +1,14 @@
+<div mat-dialog-title>
+  <span *ngIf="group.userGroupId">Edit group</span>
+  <span *ngIf="!group.userGroupId">Create new group</span>
+</div>
+<div mat-dialog-content ngForm #myForm="ngForm">
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="group.title" name="title" required>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="link" [mat-dialog-close]>Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="!myForm.valid" (click)="onOkClick()" cdkFocusInitial>Submit</button>
+</div>

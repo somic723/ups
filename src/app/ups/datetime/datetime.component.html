@@ -1,0 +1,143 @@
+<mat-grid-list cols="1" rowHeight="4:1">
+    
+<div>
+    <mat-grid-tile>
+
+        <form  class="example-form" #N="ngForm" (ngSubmit)="NTPSubmit(N)" novalidate>
+        
+            <table>
+                <!-- *ngFor="let data of dataSource;"   -->
+              <tbody >
+                  <tr>
+                    <mat-checkbox name="NTPcheck" value="NTPcheck" ngModel required #HostName="ngModel" class="example-margin">Check me!</mat-checkbox>
+                  </tr>
+                <tr>
+        
+                  <td>
+                    <label for="Student">Host Name:</label>
+                  </td>
+                  <td>
+                    <input matInput placeholder="pool.ntp.org" name="NTPServer" value="NTPServer" ngModel required #HostName="ngModel">
+                  </td>
+        
+                </tr>
+              </tbody>
+
+            </table> 
+<br>
+                  <button type="submit" mat-button>Submit</button>
+                  <button  mat-button>Update now</button>
+                  <button  mat-button>Default</button>
+        </form>
+    </mat-grid-tile>
+
+<mat-grid-tile>
+
+        <form  class="example-form" #TZ="ngForm" (ngSubmit)="TIMEZONESubmit(TZ)" novalidate>
+        
+            <table>
+                <!-- *ngFor="let data of dataSource;"   -->
+              <tbody >
+
+                  <tr>
+                    <h4>Basic native select</h4>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Cars</mat-label>
+                      <select matNativeControl required name="TIMEZONESubmit" value="TIMEZONESubmit" ngModel required #HostName="ngModel" class="example-margin">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                      </select>
+                    </mat-form-field>    
+                    <button type="submit" mat-button>Submit</button>
+             
+                 </tr>
+        
+              </tbody>
+
+            </table>
+        </form>
+</mat-grid-tile>
+
+<mat-grid-tile>
+
+        <form  class="example-form" #T="ngForm" (ngSubmit)="TIMESubmit(T)" novalidate>
+        
+            <table>
+                <!-- *ngFor="let data of dataSource;"   -->
+              <tbody >
+                <h4>Basic native select</h4>
+                  <tr>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Year</mat-label>
+                        <select matNativeControl required name="year" value="year" ngModel required #HostName="ngModel" class="example-margin">
+                          <option value="volvo">2020</option>
+                          <option value="saab">2019</option>
+                          <option value="mercedes">2018</option>
+                        </select>
+                      </mat-form-field> 
+
+                      <mat-form-field appearance="fill">
+                        <mat-label>Month</mat-label>
+                        <select matNativeControl required name="month" value="month" ngModel required #HostName="ngModel" class="example-margin">
+                          <option value="volvo">sep</option>
+                          <option value="saab">oct</option>
+                          <option value="mercedes">nov</option>
+                        </select>
+                      </mat-form-field> 
+                      
+                      <mat-form-field appearance="fill">
+                        <mat-label>Day</mat-label>
+                        <select matNativeControl required name="day" value="day" ngModel required #HostName="ngModel" class="example-margin">
+                          <option value="volvo">28</option>
+                          <option value="saab">27</option>
+                          <option value="mercedes">26</option>
+                        </select>
+                      </mat-form-field> 
+
+                      <mat-form-field appearance="fill">
+                        <mat-label>Hour</mat-label>
+                        <select matNativeControl required name="Hour" value="Hour" ngModel required #HostName="ngModel" class="example-margin">
+                          <option value="volvo">8</option>
+                          <option value="saab">7</option>
+                          <option value="mercedes">6</option>
+                        </select>
+                      </mat-form-field> 
+
+                      <mat-form-field appearance="fill">
+                        <mat-label>Min</mat-label>
+                        <select matNativeControl required name="Min" value="Min" ngModel required #HostName="ngModel" class="example-margin">
+                          <option value="volvo">50</option>
+                          <option value="saab">49</option>
+                          <option value="mercedes">48</option>
+                        </select>
+                      </mat-form-field> 
+
+                      <mat-form-field appearance="fill">
+                        <mat-label>Sec</mat-label>
+                        <select matNativeControl required name="Sec" value="Sec" ngModel required #HostName="ngModel" class="example-margin">
+                          <option value="volvo">7</option>
+                          <option value="saab">6</option>
+                          <option value="mercedes">5</option>
+                        </select>
+                      </mat-form-field> 
+
+
+                 </tr>
+        <tr>
+            <button type="submit" mat-button>Submit</button>
+            <button  mat-button>Use Browser Time</button>
+        </tr>
+              </tbody>
+
+            </table> 
+<br>
+               
+        </form>
+
+</mat-grid-tile>
+
+</div>
+
+</mat-grid-list>

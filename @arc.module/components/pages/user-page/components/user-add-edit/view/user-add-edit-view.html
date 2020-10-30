@@ -1,0 +1,63 @@
+<div mat-dialog-title>
+  <span *ngIf="user.userId">Edit user: {{user.username}}</span>
+  <span *ngIf="!user.userId">Create User</span>
+  <span *ngIf="!user.userId && !user.userGroupFk"> (unAssigned Group)</span>
+</div>
+<div mat-dialog-content fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap.gt-xs="10px" ngForm #myForm="ngForm">
+
+  <mat-form-field fxFlex="0 1 calc(50% - 10px)">
+    <mat-label>First Name</mat-label>
+    <input matInput [(ngModel)]="user.name" name="name" required>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="0 1 calc(50% - 10px)">
+    <mat-label>LastName</mat-label>
+    <input matInput [(ngModel)]="user.family" name="family" required>
+  </mat-form-field>
+
+  <div *ngIf="!user.userId" fxFlex="100">
+    <mat-form-field style="width: 100%;">
+      <mat-label>UserName</mat-label>
+      <input matInput [(ngModel)]="user.username" (ngModelChange)="usernameChanged()" name="username" required>
+    </mat-form-field>
+    <span mat-label *ngIf="takenUsername" style="color:darkred">
+      username is taken</span>
+  </div>
+
+  <mat-form-field fxFlex="0 1 calc(50% - 10px)" *ngIf="isPasswordChanged || !user.userId">
+    <mat-label>Password</mat-label>
+    <input matInput [(ngModel)]="user.password" name="password" required type="password">
+  </mat-form-field>
+
+  <div fxFlex="0 1 calc(50% - 10px)" *ngIf="isPasswordChanged || !user.userId">
+    <mat-form-field style="width: 100%;">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput [(ngModel)]="confirmPassword" name="confirmPass" required type="password" #confirmPass="ngModel">
+    </mat-form-field>
+    <span mat-label *ngIf="confirmPass.touched && user.password !== confirmPassword" style="color:darkred">confirm
+      password does not match</span>
+  </div>
+
+  <div fxFlex="100">
+    <button mat-raised-button *ngIf="isPasswordChanged && user.userId" (click)="isPasswordChanged=false"
+      color="warn">cancel</button>
+  </div>
+
+  <div *ngIf="!isPasswordChanged && user.userId" fxFlex="100">
+    <button mat-raised-button (click)="isPasswordChanged=true" color="primary">Change Password</button>
+  </div>
+
+  <p fxFlex="0 1 calc(50% - 10px)">
+    <mat-checkbox class="example-margin" [(ngModel)]="user.isActive" name="isActive">Is Active</mat-checkbox>
+  </p>
+  <p fxFlex="0 1 calc(50% - 10px)">
+    <mat-checkbox class="example-margin" [(ngModel)]="user.isService" name="isService">Is Service</mat-checkbox>
+  </p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="link" [mat-dialog-close]>Cancel</button>
+  <button mat-raised-button color="primary"
+    [disabled]="!myForm.valid || (isPasswordChanged && user.password!==confirmPassword) || takenUsername"
+    (click)="onOkClick()"
+    cdkFocusInitial>Submit</button>
+</div>

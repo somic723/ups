@@ -1,0 +1,28 @@
+<mat-dialog-content>
+  <h2 mat-dialog-title>Request tel ID {{selectedLog.requestId}}</h2>
+</mat-dialog-content>
+
+<mat-dialog-content>
+  <div fxLayout="row wrap">
+    <div fxFlex="60">
+      <b>source unit:</b><br>
+      {{getUnitById(selectedLog.srcUnitFk).title}}<br>
+      <b>destination unit:</b><br>
+      {{getUnitById(selectedLog.dstUnitFk).title}}
+    </div>
+    <div fxFlex="40">
+      <button mat-button mat-raised-button color="primary" (click)="swap()"
+        [disabled]="getUnitById(selectedLog.dstUnitFk).unitType==='L1'">
+        swap
+      </button>
+    </div>
+  </div>
+  <json-editor [data]="json" [(ngModel)]="json" [options]="editorOptions"></json-editor>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button mat-stroked-button (click)="sendTelegram()" >
+    Send Telegram
+  </button>
+</mat-dialog-actions>

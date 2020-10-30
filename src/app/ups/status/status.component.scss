@@ -1,0 +1,47 @@
+mat-grid-tile {
+    background: #ebedeb
+  }
+  table {
+    margin: 2%;
+    width: 60%;
+    height: 50%;
+  }
+  .mat-card{
+
+    background-color: azure;
+    margin-right: 10%; 
+    width: 50%;
+    height: 60%; 
+
+  }
+  .mat-card-image{
+    margin: 30%; 
+    width: 50%;
+    height: 50%;  
+
+  }
+  button{
+    background-color: #03fc35;
+    text-align: center; 
+    width: 90%;
+    height: 70%;
+
+  }
+
+
+  .example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://www.freeiconspng.com/uploads/green-ok-icon-2.png');
+    background-size: cover;
+  }
+  
+  label {
+    /* Other styling... */
+    text-align: right;
+    clear: both;
+    float:left;
+    margin:10px;
+}

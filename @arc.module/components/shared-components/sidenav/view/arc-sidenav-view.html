@@ -1,0 +1,46 @@
+<div style="display: inline">
+  <div style="width:15%; display: inline-block;margin-right:4px ;">
+    <mat-icon style="font-size: 2rem;cursor: pointer;color:darkred;" (click)="logOut();">
+      power_settings_new
+    </mat-icon>
+  </div>
+  <div style="width: 70%; display: inline-block;cursor: pointer;" (click)="editUser()">
+    <div><b>{{auth.user.name+' '+auth.user.family}}</b></div>
+    <div>({{auth.user.userGroupFk}})</div>
+  </div>
+</div>
+<mat-divider style="margin-top: 1rem;"></mat-divider>
+
+<mat-accordion [multi]="true">
+  <mat-expansion-panel *ngFor="let menu of menus">
+    <mat-expansion-panel-header>
+      <mat-panel-title style="font-weight: bolder;">
+        {{menu.titleEn}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <button *ngFor="let sub of menu.subMenus" mat-button color="primary" style="width: 100%;text-align: left;"
+      (click)="onClick(sub)">{{sub.titleEn}}</button>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title style="font-weight: bolder;">
+        Reports
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let group of reportGroups">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-weight: bolder;">
+            {{group.title}}
+          </mat-panel-title>
+
+        </mat-expansion-panel-header>
+        <button *ngFor="let report of group.reports" mat-button color="primary"
+          style="width: 100%;">{{report.title}}</button>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-expansion-panel>
+</mat-accordion>

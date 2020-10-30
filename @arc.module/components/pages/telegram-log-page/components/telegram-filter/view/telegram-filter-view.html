@@ -1,0 +1,136 @@
+<mat-card class="filter-card" style="margin: 10px;">
+  <mat-card-header>
+    <mat-card-title>Set Telegram Filters</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="17px">
+
+      <mat-form-field style="width: 100%;" fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.gt-sm="0 2 calc(50% - 17px)">
+        <mat-label>request tel ID</mat-label>
+        <mat-select [(ngModel)]="selectedRequestTelegramId" name="requestTelegramId">
+          <mat-option>---</mat-option>
+          <mat-option *ngFor="let item of telegrams" [value]="item.telegramId">
+            {{ item.telegramId + ' - ' + item.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%;" fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.gt-sm="0 2 calc(50% - 17px)">
+        <mat-label>response tel ID</mat-label>
+        <mat-select [(ngModel)]="selectedResponseTelegramId" name="responseTelegramId">
+          <mat-option>---</mat-option>
+          <mat-option *ngFor="let item of telegrams" [value]="item.telegramId">
+            {{ item.telegramId + ' - ' + item.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+        <!-- <mat-form-field style="width: 100%;" fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.gt-sm="0 2 calc(50% - 17px)">
+          <mat-chip-list #chipList aria-label="Fruit selection">
+            <mat-chip *ngFor="let telegram of selectedTelegrams" [selectable]="true" [removable]="true"
+              (removed)="remove(telegram)">
+              {{telegram.telegramId}}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+            <input type="text" placeholder="telegram Id..." #telegramIdInput [formControl]="telegramIdCtrl"
+              [matAutocomplete]="auto" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event,'telegramId')">
+          </mat-chip-list>
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event,'telegramId')">
+            <mat-option *ngFor="let telegram of (filteredTelegramsById | async)" [value]="telegram.telegramId">
+              {{telegram.telegramId}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%;" fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.gt-sm="0 2 calc(50% - 17px)">
+          <mat-chip-list #chipList2>
+            <mat-chip *ngFor="let telegram of selectedTelegrams" [selectable]="true" [removable]="true"
+              (removed)="remove(telegram)">
+              {{telegram.name}}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+            <input type="text" placeholder="Telegram Name" #telegramTitleInput [formControl]="telegramTitleCtrl"
+              [matAutocomplete]="auto2" [matChipInputFor]="chipList2"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event,'telegramTitle')">
+          </mat-chip-list>
+          <mat-autocomplete #auto2="matAutocomplete" (optionSelected)="selected($event,'telegramTitle')">
+            <mat-option *ngFor="let telegram of (filteredTelegramsByTitle | async)" [value]="telegram.telegramId">
+              {{telegram.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field> -->
+
+
+      <mat-form-field fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.md="0 1 calc(33% - 17px)"
+        fxFlex.gt-md="0 1 calc(25% - 17px)">
+        <mat-label>Reciver unit</mat-label>
+        <mat-select [(ngModel)]="selectedReciver">
+          <mat-option>---</mat-option>
+          <mat-option *ngFor="let topping of units" [value]="topping.unitId">{{ topping.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.md="0 1 calc(33% - 17px)"
+        fxFlex.gt-md="0 1 calc(25% - 17px)">
+        <mat-label>Sender unit</mat-label>
+        <mat-select [(ngModel)]="selectedSender">
+          <mat-option>---</mat-option>
+          <mat-option *ngFor="let topping of units" [value]="topping.unitId">{{
+            topping.title
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.md="0 1 calc(33% - 17px)"
+        fxFlex.gt-md="0 1 calc(25% - 17px)">
+        <input matInput [(ngModel)]="selectedFrom" (ngModelChange)="selectedHour=null" [matDatepicker]="picker1"
+          placeholder="Start Date" />
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.md="0 1 calc(33% - 17px)"
+        fxFlex.gt-md="0 1 calc(25% - 17px)">
+        <input [disabled]="!selectedFrom" matInput [(ngModel)]="selectedTimeFrom" (ngModelChange)="selectedHour=null"
+          [ngxTimepicker]="timepicker1" placeholder="start time" />
+        <ngx-material-timepicker #timepicker1></ngx-material-timepicker>
+      </mat-form-field>
+
+      <mat-form-field fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.md="0 1 calc(33% - 17px)"
+        fxFlex.gt-md="0 1 calc(25% - 17px)">
+        <input [(ngModel)]="selectedTo" (ngModelChange)="selectedHour=null" matInput [matDatepicker]="picker2"
+          placeholder="End Date" [min]="startDate.value" />
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.md="0 1 calc(33% - 17px)"
+        fxFlex.gt-md="0 1 calc(25% - 17px)">
+        <input [disabled]="!selectedTo" [(ngModel)]="selectedTimeTo" (ngModelChange)="selectedHour=null" matInput
+          [ngxTimepicker]="timepicker2" placeholder="end time" />
+        <ngx-material-timepicker #timepicker2></ngx-material-timepicker>
+      </mat-form-field>
+
+      <mat-form-field fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.md="0 1 calc(33% - 17px)"
+        fxFlex.gt-md="0 1 calc(25% - 17px)">
+        <mat-label>Last hours</mat-label>
+        <mat-select [(ngModel)]="selectedHour" (ngModelChange)="selectedHourChanged()" name="Last Hour">
+          <mat-option>---</mat-option>
+          <mat-option *ngFor="let item of lastHours" [value]="item">
+            {{ item }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+  </mat-card-content>
+  <mat-card-actions fxLayoutAlign="center">
+    <button type="submit" mat-raised-button color="primary" (click)="submitForm()">
+      Filter
+    </button>
+    <button mat-raised-button color="primary" (click)="clearForm()">Clear</button>
+    <mat-checkbox [(ngModel)]="autoRefresh">Auto refresh</mat-checkbox>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,76 @@
+<mat-grid-list cols="3" rowHeight="1:3">
+
+
+    <mat-grid-tile >
+        
+     
+    </mat-grid-tile>
+  
+
+
+    <mat-grid-tile >
+
+        <form class="example-form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        
+
+            <mat-form-field appearance="fill">
+
+                <mat-label>ShutdownType</mat-label>
+                <mat-select name="ShutdownType" ngModel required #ShutdownType="ngModel">
+                  <mat-option value="option">Option</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill">
+
+                <mat-label>ShutdownAfterDelay</mat-label>
+                <mat-select name="ShutdownAfterDelay" ngModel required #ShutdownAfterDelay="ngModel">
+                  <mat-option value="option">Option</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br>
+
+              <mat-form-field appearance="fill">
+
+                <mat-label>Startup</mat-label>
+                <mat-select name="Startup" ngModel required #Startup="ngModel">
+                  <mat-option value="option">Option</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br>
+
+              <mat-form-field appearance="fill">
+
+                <mat-label>Reboot</mat-label>
+                <mat-select name="Reboot" ngModel required #Reboot="ngModel">
+                  <mat-option value="option">Option</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br>
+
+              <mat-form-field appearance="fill">
+
+                <mat-label>AutoRestart</mat-label>
+                <mat-select name="AutoRestart" ngModel required #AutoRestart="ngModel">
+                  <mat-option value="option">Option</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <button mat-raised-button color="primary" type="submit">Submit</button>
+
+
+         
+          </form>
+        
+        
+     
+    </mat-grid-tile>
+  
+
+    <mat-grid-tile >
+        
+     
+    </mat-grid-tile>
+  
+  
+  </mat-grid-list>

@@ -1,0 +1,21 @@
+<div style="background-color: darkgray;">
+  <mat-grid-list cols="20" rowHeight="1.5:1">
+    <mat-grid-tile colspan=1 style="background-color: lightblue;">
+      <mat-spinner diameter="20"></mat-spinner>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan=4 style="background-color: green;"></mat-grid-tile>
+    <mat-grid-tile colspan=10 style="background-color: red;" (click)="clickLog()">
+      <div style="cursor: pointer;" *ngIf="footerLogs.length > 0">
+        {{footerLogs[footerLogs.length-1].logText}}
+      </div>
+    </mat-grid-tile>
+
+    <!-- <mat-grid-tile colspan=3  style="background-color: green;">2</mat-grid-tile> -->
+    <mat-grid-tile colspan=5 style="background-color: silver;" (click)="changeDateType()" [matTooltip]="dateTimeTooltip"
+      [matTooltipPosition]="'above'" matTooltipHideDelay="3000">
+      {{dateTime}}
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>

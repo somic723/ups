@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="14in"
+   height="8in"
+   viewBox="0 0 355.6 203.2"
+   version="1.1"
+   id="svg4682"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="drawing.svg">
+  <defs
+     id="defs4676" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-152.85714"
+     inkscape:cy="560"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="in"
+     height="8in"
+     inkscape:window-width="1920"
+     inkscape:window-height="1000"
+     inkscape:window-x="1909"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4679">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-93.8)">
+    <g
+       id="g4647"
+       transform="matrix(2.6897332,0,0,2.6897332,-90.81314,-0.95063243)">
+      <rect
+         transform="matrix(0.83309368,-0.55313192,0.83309368,0.55313192,0,0)"
+         y="92.822441"
+         x="-38.122131"
+         height="65.446396"
+         width="64.163139"
+         id="rect4619"
+         style="fill:#162c82;fill-opacity:1;stroke-width:0.22457097" />
+      <rect
+         y="53.129768"
+         x="35.68095"
+         height="39.309521"
+         width="127.75594"
+         id="rect3804"
+         style="fill:#59abdb;fill-opacity:1;stroke-width:0.18305059" />
+      <text
+         id="text4627"
+         y="80.808846"
+         x="72.341293"
+         style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.39999962px;font-family:Calibri;-inkscape-font-specification:Calibri;fill:#ffffff;stroke-width:0.26458332"
+           y="80.808846"
+           x="72.341293"
+           id="tspan4625"
+           sodipodi:role="line">IRISA</tspan></text>
+    </g>
+    <rect
+       style="fill:none;fill-opacity:1;stroke-width:0.71165854"
+       id="rect4651"
+       width="345.44897"
+       height="190.20256"
+       x="12.063428"
+       y="88.146217" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke-width:0.71165854"
+       id="rect4653"
+       width="345.44897"
+       height="190.20256"
+       x="12.063428"
+       y="88.146217" />
+  </g>
+</svg>

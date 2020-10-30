@@ -1,0 +1,130 @@
+<mat-grid-list cols="1" rowHeight="1:1">
+    
+
+    <mat-grid-tile>
+
+
+        <form  class="example-form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        
+            <table>
+                <!-- *ngFor="let data of dataSource;"   -->
+              <tbody >
+                <tr>
+        
+                  <td>
+                    <label for="Student">Host Name:</label>
+                  </td>
+                  <td>
+                    <input matInput placeholder="GEDE-SNMP-UPS-Interface" name="HostName" value="HosteName" ngModel required #HostName="ngModel">
+                  </td>
+        
+                </tr>
+              </tbody>
+
+            </table> 
+<br>
+                  <div >
+                    <mat-radio-group [formControl]="floatLabelControl">
+                      <mat-radio-button value="DHCP" name="DHCP" value="DHCP" ngModel required #HostName="ngModel" >Obtain IP by DHCP</mat-radio-button>
+                      <br>
+                      <mat-radio-button value="BOOTP" name="BOOTP" value="BOOTP" ngModel required #HostName="ngModel">Obtain IP by BOOTP</mat-radio-button>
+                      <br>
+                      <mat-radio-button value="address" name="address" value="address" ngModel required #HostName="ngModel">Static IP address</mat-radio-button>
+                    </mat-radio-group>
+ <br>
+                      <table style="margin-left: 50px;">
+                        <!-- *ngFor="let data of dataSource;"   -->
+                      <tbody >
+                        <tr>
+                
+                          <td>
+                            <label for="Student" >IP Address:</label>
+                          </td>
+                          <td>
+                            <input matInput placeholder="IPAddress" value="IPAddress" name="IPAddress" ngModel required #HostName="ngModel">
+                          </td>
+                
+                        </tr>
+
+                        <!--  -->
+                        <tr>
+                
+                          <td>
+                            <label for="Student">Subnet Mask:</label>
+                          </td>
+                          <td>
+                            <input matInput placeholder="Subnet Mask" value="subnet" name="subnet" ngModel required #HostName="ngModel">
+                          </td>
+                
+                        </tr>
+                        <!--  -->
+                        <tr>
+                
+                          <td>
+                            <label for="Student">Getway:</label>
+                          </td>
+                          <td>
+                            <input matInput placeholder="Getway" value="Getway" name="Getway" ngModel required #HostName="ngModel">
+                          </td>
+                
+                        </tr>
+                        <!--  -->
+                      </tbody>
+        
+                    </table>
+<br>
+    <mat-radio-group [formControl]="floatLabelControl">
+
+                    <mat-radio-button value="DNS_Automatically" name="DNS_Automatically" ngModel required #HostName="ngModel">Obtain DNS Automatically</mat-radio-button>
+                    <br>
+                    <mat-radio-button value="DNS_Manually" name="DNS_Manually" ngModel required #HostName="ngModel">Set DNS Manually</mat-radio-button>
+                    <br>
+                    <table style="margin-left: 50px;">
+                      <!-- *ngFor="let data of dataSource;"   -->
+                    <tbody >
+                   
+
+                      <!--  -->
+                      <tr>
+              
+                        <td>
+                          <label for="Student">Primary DNS:</label>
+                        </td>
+                        <td>
+                          <input matInput placeholder="Primary DNS" value="Primary" name="Primary" ngModel required #HostName="ngModel">
+                        </td>
+              
+                      </tr>
+                      <!--  -->
+                      <tr>
+              
+                        <td>
+                          <label for="Student">Secondary DNS:</label>
+                        </td>
+                        <td>
+                          <input matInput placeholder="Secondary DNS" value="Secondary" name="Secondary" ngModel required #HostName="ngModel">
+                        </td>
+              
+                      </tr>
+                      <!--  -->
+                  
+                    </tbody>
+      
+                  </table>
+
+    </mat-radio-group>
+                  </div>
+
+<br>
+                  <button type="submit" mat-button>Submit</button>
+                  <button  mat-button>Defsult</button>
+                  <button  mat-button>Refresh</button>
+        </form>
+
+
+    </mat-grid-tile>
+    
+    
+
+
+</mat-grid-list>

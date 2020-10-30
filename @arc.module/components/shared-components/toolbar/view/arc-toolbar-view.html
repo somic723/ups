@@ -1,0 +1,31 @@
+<mat-toolbar color="primary" style="height:unset;" fxLayout="row wrap" fxLayout.xs="column"
+  fxLayoutAlign="center center">
+
+  <div fxFlex="15" fxFill fxFlexOrder="1" fxFlexOrder.sm="1" style="overflow: hidden;">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="toggle()">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <span><img style="width: 2rem;" src="assets/imgs/irisa-logo.png"></span>
+    <span>{{title}}</span>
+  </div>
+
+  <div fxFlex="70" fxFlex.xs="100" fxFill fxFlexOrder="2" fxFlexOrder.sm="3" style="text-align: center;">
+    <div *ngFor="let alertLog of toolbarLogs;let i=index" [hidden]="i != 0">
+      <button mat-raised-button (click)="toolbarLogConfirmed(alertLog)" style="margin-right: 5px;">Ok</button>
+      <span>{{alertLog.logText}}</span>
+    </div>
+  </div>
+
+  <div fxFlex="15" fxHide.xs fxFlexOrder="3" fxFlexOrder.sm="2" style="direction: rtl;">
+    <button mat-icon-button title="refresh" (click)="docEvents('refresh')">
+      <mat-icon>autorenew</mat-icon>
+    </button>
+    <button mat-icon-button title="forward" (click)="docEvents('forward')">
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+    <button mat-icon-button title="back" (click)="docEvents('back')">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+
+</mat-toolbar>

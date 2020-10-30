@@ -1,0 +1,15 @@
+<!-- <mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="'over'" [opened]="false">
+    <arc-sidenav-presenter></arc-sidenav-presenter>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <arc-toolbar-presenter (toggle)="drawer.toggle()"></arc-toolbar-presenter>
+    <router-outlet></router-outlet>
+    <arc-footer-presenter class="footer"></arc-footer-presenter>
+  </mat-sidenav-content>
+
+</mat-sidenav-container> -->
+
+<router-outlet></router-outlet>
