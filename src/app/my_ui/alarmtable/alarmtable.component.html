@@ -1,29 +1,52 @@
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
-  
+
+
+
       <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      <ng-container matColumnDef="alarmName">
+        <th mat-header-cell *matHeaderCellDef> alarmName </th>
+        <td mat-cell *matCellDef="let element"> {{element.alarmName}} </td>
       </ng-container>
   
       <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <ng-container matColumnDef="alarmCode">
+        <th mat-header-cell *matHeaderCellDef> alarmCode </th>
+        <td mat-cell *matCellDef="let element"> {{element.alarmCode}} </td>
       </ng-container>
   
       <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+      <ng-container matColumnDef="alarmDescription">
+        <th mat-header-cell *matHeaderCellDef> alarmDescription </th>
+        <td mat-cell style="width: 500px;" *matCellDef="let element"> {{element.alarmDescription}} </td>
       </ng-container>
   
       <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      <ng-container matColumnDef="alarmTimeFromUps">
+        <th mat-header-cell *matHeaderCellDef> alarmTimeFromUps </th>
+        <td mat-cell *matCellDef="let element"> {{element.alarmTimeFromUps}} </td>
       </ng-container>
+
+
+      <ng-container matColumnDef="datetime">
+        <th mat-header-cell *matHeaderCellDef> datetime </th>
+        <td mat-cell *matCellDef="let element"> {{element.datetime}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="upsCode">
+        <th mat-header-cell *matHeaderCellDef> upsCode </th>
+        <td mat-cell *matCellDef="let element"> {{element.upsCode}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="upsIpAddress">
+        <th mat-header-cell *matHeaderCellDef> upsIpAddress </th>
+        <td mat-cell *matCellDef="let element"> {{element.upsIpAddress}} </td>
+      </ng-container>
+
+
+
+
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

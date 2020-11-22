@@ -5,8 +5,17 @@
     <mat-grid-tile *ngFor="let mc of miniCardData" [colspan]="( cardLayout | async )?.miniCard.cols"
      
     [rowspan]="( cardLayout | async )?.miniCard.rows">
-      <app-mini-card [UPSName]="mc.UPSName">
-    
+      <app-mini-card 
+      [upsIpAddress]="mc.upsIpAddress" 
+      [estimatedChargeRemain]="mc.estimatedChargeRemain" 
+      [estimatedMinutesRemain]="mc.estimatedMinutesRemain"
+      [secondsOnBattery]="mc.secondsOnBattery" 
+      [voltV]="mc.voltV"
+      [currA]="mc.currA"
+      [status]="mc.status"
+      [tempC]="mc.tempC"
+      
+      >
     </app-mini-card>
     </mat-grid-tile>
     <!--Charts-->

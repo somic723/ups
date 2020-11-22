@@ -18,7 +18,7 @@ export class DashComponent implements OnInit{
           columns: 1,
           miniCard: { cols: 1, rows: 1 },
           chart: { cols: 1, rows: 2 },
-          table: { cols: 1, rows: 4 },
+          table: { cols: 4, rows: 4 },
         };
       }
 
@@ -26,7 +26,7 @@ export class DashComponent implements OnInit{
         columns: 4,
         miniCard: { cols: 2, rows: 1.4 },
         chart: { cols: 2, rows: 2.8 },
-        table: { cols: 2, rows:2 },
+        table: { cols: 4, rows:4 },
       };
     })
   );
@@ -36,10 +36,12 @@ export class DashComponent implements OnInit{
   constructor(private breakpointObserver: BreakpointObserver, private summaryService: StoreSummaryService) {}
 
   ngOnInit() {
-    this.summaryService.getStoreSummary().subscribe({
-      next: summaryData => {
-        this.miniCardData = summaryData;
+    this.summaryService.storeSummary.subscribe(
+      next => {
+console.log(next);
+
+        this.miniCardData = next;
       }
-    });
+    );
   }  
 }

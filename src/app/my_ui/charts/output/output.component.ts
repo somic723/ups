@@ -1,6 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
+import { BehaviorSubject, from, Subject } from 'rxjs';
+import { NgForm, Validators } from '@angular/forms';
+import { MyTelegramService } from "../../../services/my-telegram.service";
+
+import { MatProgressButtonOptions } from 'mat-progress-buttons'
+
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
+import { Console } from 'console';
+import { TelegramService } from '@arc.module/services/telegram.service';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+
+
+
+
+
+export interface Output {
+  upsCode: number,
+  phase: number,
+  freqHz: number,
+  voltV: number,
+  currA: number,
+  powerW: number,
+  load:number,
+  dateTime: string
+}
+
+
+
 
 @Component({
   selector: 'app-output',
@@ -8,6 +37,8 @@ import { Label, Color } from 'ng2-charts';
   styleUrls: ['./output.component.css']
 })
 export class OutputComponent implements OnInit {
+
+  output= [] as Output[];
 
 
   public barChartOptions: ChartOptions = {
@@ -25,12 +56,55 @@ export class OutputComponent implements OnInit {
   ];
 
   public barChartData: ChartDataSets[] = [
-    { data: [45,281, 156,17,344], label: '192.168.1.1' },
-    { data: [23, 281, 156,22,444], label: '192.168.1.2' }
+    { data: [this.output[0]?.freqHz,this.output[0]?.voltV,this.output[0]?.currA,this.output[0]?.powerW,this.output[0]?.load], label: '192.168.1.1' },
+    { data: [this.output[1]?.freqHz,this.output[1]?.voltV,this.output[1]?.currA,this.output[1]?.powerW,this.output[1]?.load], label: '192.168.1.2' }
 
   ];
 
-  constructor() { }
+
+
+  constructor(public TelService: MyTelegramService,private telegramService:TelegramService) {
+
+    this.subscribegetOutputStatus()
+    this.getOutputStatus()
+  }
+
+  subscribegetOutputStatus() {
+    this.telegramService.backEndTelegram.subscribe(res => {
+      if (res.telId == 1102) {
+        console.log('subscribe')
+        console.log(res.telData.inputs);
+        
+       // this.input = res.telData.inputs as Input[];
+       this.setChartOutputData(res.telData.inputs as Output[]);
+        console.warn(this.output[0].upsCode)
+      }
+    });
+  }
+
+  setChartOutputData(output:Output[])
+  {
+     this.barChartData = [
+      { data: [this.output[0]?.freqHz,this.output[0]?.voltV,this.output[0]?.currA,this.output[0]?.powerW,this.output[0]?.load], label: '192.168.1.1' },
+      { data: [this.output[1]?.freqHz,this.output[1]?.voltV,this.output[1]?.currA,this.output[1]?.powerW,this.output[1]?.load], label: '192.168.1.2' }
+    ];
+    
+  }
+
+  getOutputStatus() {
+    console.log("start tel 1103")
+    this.TelService.getInputStatus().subscribe(res => {
+      if (res.telData) {
+        this.output = res.telData.inputs as Output[];
+        // this.testdatacource = res.telData.tests as test[];
+      }
+      else {
+        // TODO: rectify
+        console.log("not");
+      }
+    });
+  }
+
 
   ngOnInit() {
   }

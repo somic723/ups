@@ -6,26 +6,24 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./mini-card.component.css']
 })
 
+
+
+  
+
+
 export class MiniCardComponent {
-  @Input() UPSName: string;
-  @Input() Manufacture: string;
-  @Input() SerialNumber: string;
-  @Input() Model: string;
-  @Input() SoftwareVersion: string;
-  @Input() AgentVersion: string;
-  @Input() ComPortVesion: string;
-  @Input() UpsAttachedDevice: string;
-  @Input() upscode: string;
-  @Input() ISActive: boolean;
-  @Input() HostName: string;
-  @Input() OperatingSystem: string;
-  @Input() FirmwareVersion: string;
-  @Input() FirmwareDt: string;
-  @Input() SystemUpTime: string;
-  @Input() MacAddress: string;
-  @Input() IPAddress: string;
-  @Input() SubNetMask: string;
-  @Input() DefaultGateWay: string;
+
+  @Input() estimatedChargeRemain: number;
+  @Input() estimatedMinutesRemain: number;
+  @Input() secondsOnBattery: number;
+  @Input() tempC: number;
+  @Input() upsCode: number;
+  @Input() voltV: number;
+  @Input() currA: number;
+  @Input() dateTime: string;
+  @Input() upsIpAddress: string;
+  @Input() status: string;
+
   
 
   constructor() { }

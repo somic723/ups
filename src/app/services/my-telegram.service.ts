@@ -39,16 +39,52 @@ export class MyTelegramService {
 
 
 //#region input
-  getInputStatus(data: number) {
-    console.log("start service")
+  getInputStatus() {
     return this.telegramService.send({
       telId: 1102, telData: {
-        "upscode": 1
       }
 
     });
   }
 //#endregion
+
+
+//#region output
+getOutputStatus() {
+  return this.telegramService.send({
+    telId: 1103, telData: {
+    }
+
+  });
+}
+//#endregion
+
+
+
+
+//#region output
+bypassStatus() {
+  return this.telegramService.send({
+    telId: 1104, telData: {
+    }
+
+  });
+}
+//#endregion
+
+
+//#region output
+get_Alarm() {
+  return this.telegramService.send({
+    
+    telId: 1116, telData: {
+    }
+
+  });
+}
+//#endregion
+
+
 
 
 }

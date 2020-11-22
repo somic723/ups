@@ -4,7 +4,7 @@
     <mat-card-header class="card-header">
         <mat-card-title>
             
-            <h1 class="value-text" >{{UPSName}}</h1>
+            <h1 class="value-text" >{{upsIpAddress}}</h1>
             
             <!-- <h1 class="value-text" *ngIf="!isCurrency">{{value}}</h1> -->
         </mat-card-title>
@@ -21,22 +21,30 @@
     <!-- <h3 class="title-text">1212</h3> -->
     <p class="difference-text">
         <span>
-            Power Supply on:
+            Battery Status:
         </span>
-        <button class="btncolor">AC</button>
+        <button class="btncolor">{{status}}</button>
 
-        <span class="pad">Input Voltage:</span> 
-        <button class="btncolor">220</button>
-
-        <span class="pad">Output Voltage:</span> 
-        <button class="btncolor">220</button>
-        <br>
-        <br>
-        <span>Charging Percent:</span> 
-        <button class="btncolor">100 %</button>
+        <span class="pad">Seconds On Battery:</span> 
+        <button class="btncolor">{{secondsOnBattery}}</button>
 
         <span class="pad">Minutes Remaining:</span> 
-        <button class="btncolor">100 min</button>
+        <button class="btncolor">{{estimatedMinutesRemain}} min</button>
+        <br>
+        <br>
+        <span>Charge Remaining:</span> 
+        <button class="btncolor">{{estimatedChargeRemain}} %</button>
+
+        <span class="pad">Battery Voltage:</span> 
+        <button class="btncolor">{{voltV}}</button>
+
+
+        
+        <span class="pad">Battery Current:</span> 
+        <button class="btncolor">{{currA}}</button>
+
+        <span class="pad">Battery Temperature:</span> 
+        <button class="btncolor">{{tempC}}</button>
 
     </p>
 
