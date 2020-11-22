@@ -6,6 +6,6 @@ export interface ITelegramLogFilter {
   responseTelegramId?: number;
   senderFk?: number;
   receiverFk?: number;
-  fromDate?: Date;
-  toDate?: Date;
+  fromDate?: string;
+  toDate?: string;
 }

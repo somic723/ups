@@ -35,8 +35,6 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
-import {MatSliderModule} from '@angular/material/slider';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { NgJsonEditorModule } from 'ang-jsoneditor'
 
 @NgModule({
@@ -44,8 +42,6 @@ import { NgJsonEditorModule } from 'ang-jsoneditor'
   ],
   imports: [
     HttpClientModule,
-    MatSlideToggleModule,
-    MatSliderModule,
     BrowserModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
@@ -123,8 +119,6 @@ import { NgJsonEditorModule } from 'ang-jsoneditor'
     MatInputModule,
     MatProgressSpinnerModule,
     MatSelectModule,
-    MatSlideToggleModule,
-    MatSliderModule,
     MatDialogModule,
     MatBottomSheetModule,
     MatSnackBarModule,
@@ -147,7 +141,7 @@ import { NgJsonEditorModule } from 'ang-jsoneditor'
     MatExpansionModule,
     MatTooltipModule,
     NgxJsonViewerModule,
-    NgJsonEditorModule
+    NgJsonEditorModule,
   ]
 })
 export class MaterialModule { }

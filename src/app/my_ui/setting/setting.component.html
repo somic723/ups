@@ -1,0 +1,54 @@
+<div class="parallax">
+
+<mat-tab-group mat-align-tabs="center" dynamicHeight>
+
+  <mat-tab label="UPS Control">
+    <app-upscontrol></app-upscontrol>
+    </mat-tab>
+
+
+  <mat-tab label="UPS DateTime">
+    <app-upstime> </app-upstime>
+  </mat-tab>
+
+  <mat-tab label="UPS NetWork">
+ <app-upsnet></app-upsnet>
+  </mat-tab>
+
+  <mat-tab label="UPS Configuration">
+   <app-upsconfig></app-upsconfig>
+  </mat-tab>
+
+  
+
+  <mat-tab label="UPS Test">
+    <app-upstesttab></app-upstesttab>
+  </mat-tab>
+
+  <mat-tab label="Connected System ">
+   <app-upsconnect></app-upsconnect>
+
+  </mat-tab>
+
+</mat-tab-group>
+
+
+<div class="container">
+  <div class="row">
+    <div class="cir" >
+      <circle-progress name="A" [options]="optionsA" [renderOnClick]="false" class="copy"></circle-progress>
+      <circle-progress name="B" [options]="optionsB" [renderOnClick]="false" class="copy"></circle-progress>
+      <circle-progress name="C" [options]="optionsC" [renderOnClick]="false" class="copy"></circle-progress>
+      <circle-progress name="D" [options]="optionsD" [renderOnClick]="false" class="copy"></circle-progress>
+      <circle-progress name="E" [options]="optionsE" [renderOnClick]="false" class="copy"></circle-progress>
+      <circle-progress name="F" [options]="optionsF" [renderOnClick]="false" class="copy"></circle-progress>
+      <circle-progress name="G" [options]="optionsG" [renderOnClick]="false" class="copy"></circle-progress>
+    </div>
+  </div>
+
+ 
+
+</div>
+
+
+</div>

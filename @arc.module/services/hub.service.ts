@@ -10,28 +10,41 @@ import { Subject } from "rxjs";
   providedIn: "root"
 })
 export class HubService {
-  private hubConnection: signalR.HubConnection;
 
-  lastIndex = new Subject<Telegram>();
+  private hubConnection: signalR.HubConnection;
+  private _interval;
+  latestEvent = new Subject<Telegram>();
   lastArcEvent: Subject<any> = new Subject<any>();
   private initialized = false;
   constructor(
     public settings: SettingsService,
     private http: HttpClient
   ) { }
-  public startConnection = async () => {
+
+
+
+  stop() {
+    clearInterval(this._interval);
+    this.hubConnection = null;
+    this.initialized = false;
+
+  }
+
+  public start = async () => {
     if (this.initialized)
       return;
-    this.addListener();
-    this.addArcListener();
     if (!this.hubConnection) {
       this.hubConnection = new signalR.HubConnectionBuilder()
         .withUrl(this.settings.serverAddress + "/irisaHub")
         .build();
 
     }
-    setInterval(() => this.connectionCheck(), 5000);
+    this.addListener();
+    this.addArcListener();
+    this._interval = setInterval(() => this.connectionCheck(), 5000);
     this.initialized = true;
+    console.log("H_START");
+
   };
   private async connectionCheck() {
 
@@ -58,8 +71,8 @@ export class HubService {
   private addListener = () => {
     this.hubConnection.on("NEW_EVENT", data => {
       const tmp = JSON.parse(data);
-      console.log(tmp);
-      this.lastIndex.next(tmp);
+
+      this.latestEvent.next(tmp);
     });
     this.hubConnection.onclose(() => {
       console.log("DISCONNECTED!!!");

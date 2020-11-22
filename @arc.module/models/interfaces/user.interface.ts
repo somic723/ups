@@ -7,5 +7,6 @@ export interface IUser {
   isActive?: boolean;
   isService?: boolean;
   userGroupFk?: number;
+  groupId?: number;
   shiftTeamFk?: number;
 }

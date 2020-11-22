@@ -1,12 +1,13 @@
+import { TelegramService } from './../../@arc.module/services/telegram.service';
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { shareReplay, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '@arc.module/services/auth.service';
-
+import { ARC_VERSION } from '@arc.module/arc.module';
 
 
 @Component({
@@ -15,13 +16,8 @@ import { AuthService } from '@arc.module/services/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
-
-
-
-
-  
-
+  _version = ARC_VERSION;
+  loginStatus: boolean = false
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -32,12 +28,23 @@ export class AppComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     public auth: AuthService,
     private router: Router,
-    public dialog: MatDialog
-  ) {
+    private tel: TelegramService,
+    public dialog: MatDialog,
+    public changeDetectorRef: ChangeDetectorRef,
+  ) { }
 
-  }
+
   ngOnInit(): void {
     let i = 0;
+    this.tel.backEndTelegram.subscribe(data => {
+      console.warn("backEndTelegram", data)
+    })
+
+    this.auth.loginStatus.subscribe(status => {
+      this.loginStatus = status
+      this.changeDetectorRef.detectChanges()
+    })
+
     // setInterval(() => {
     //   i++;
     //   if (this.auth.user) {

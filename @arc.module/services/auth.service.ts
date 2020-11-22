@@ -1,3 +1,6 @@
+import { TokenService } from './token.service';
+import { MenuService } from './menu.service';
+import { RoutineService } from './routine.service';
 import { HubService } from './hub.service';
 import { Injectable } from "@angular/core";
 
@@ -13,31 +16,25 @@ export class AuthService {
 
 
 
-
-  private _user: IUser;
-  get user(): IUser {
-    if (!this._user) {
-      this._user = JSON.parse(localStorage.getItem('USER'));
-    }
-    return this._user;
-  }
-
-  private _token: string;
-  get token(): string {
-    if (!this._token) {
-      this._token = localStorage.getItem('TOKEN');
-    }
-    return this._token;
-  }
-
-
   loginStatus: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
     private settings: SettingsService,
     private hubService: HubService,
+    private routineService: RoutineService,
+    private menuService: MenuService,
+    private tokenService: TokenService,
     private http: HttpClient
-  ) { }
+  ) {
+
+    if (this.tokenService.token) {
+      this.loginStatus.next(true);
+      this.startServices();
+    }
+
+
+
+  }
 
 
   async login(usr, pswrd) {
@@ -50,29 +47,35 @@ export class AuthService {
       .post(url, obj)
       .toPromise()
       .then((data: any) => {
-        console.log(data);
-        this.setData(data);
-        this.hubService.startConnection();
+        //console.log(data);
+        this.tokenService.setData(data);
         this.loginStatus.next(true);
+        this.startServices();
         return 'SUCCESS';
       })
       .catch(err => {
-        return err.error.text;
+
+        let tmp = err.error.text;
+        if (!tmp)
+          tmp = 'ERROR CONNECTING TO SERVER';
+        return tmp;
       });
   }
 
-  setData(data) {
-    localStorage.setItem('TOKEN', data.token);
-    localStorage.setItem('USER', JSON.stringify(data.user));
-    this._token = data.token;
-    this._user = data.user;
-  }
+
 
   logOut() {
-
-    localStorage.removeItem('TOKEN');
-    localStorage.removeItem('USER');
-    this._token = "";
-    this._user = null;
+    this.tokenService.clearData();
+    this.stopServices();
+  }
+  private startServices() {
+    this.hubService.start();
+    this.routineService.start();
+    this.menuService.start();
+  }
+  private stopServices() {
+    this.hubService.stop();
+    this.routineService.stop();
+    this.menuService.stop();
   }
 }

@@ -177,6 +177,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { GetTelegramNameByIdPipe } from './pipes/get-telegram-name-by-id.pipe';
 import { MaterialModule } from 'src/app/material.module';
+import { Routes } from '@angular/router';
+import { DatePipe } from '@angular/common';
+
+
+export const ARC_VERSION = "1.1.1";
+
+export const ARC_ROUTES: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginPagePresenter },
+  { path: 'shift-definition', component: ShiftPagePresenter },
+  { path: 'alert-log', component: AlertLogPagePresenter },
+  { path: 'alert-definition', component: AlertDefinitionPagePresenter },
+  { path: 'menu-definition', component: MenuPagePresenter },
+  { path: 'user-definition', component: UserPagePresenter },
+  { path: 'report-definition', component: ReportDefinitionPagePresenter },
+  { path: 'telegram-modification', component: TelegramModificationPagePresenter },
+  { path: 'telegram-log', component: TelegramLogPagePresenter }
+];
+
 
 
 @NgModule({
@@ -335,6 +354,7 @@ import { MaterialModule } from 'src/app/material.module';
     // SidenavComponent,
     //  ToolbarComponent
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [DatePipe]
 })
 export class ArcModule { }

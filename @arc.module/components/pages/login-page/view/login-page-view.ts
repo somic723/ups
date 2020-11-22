@@ -23,8 +23,8 @@ export class LoginPageComponent implements OnInit {
   uHide = false;
   pHide = true;
   inProcess = false;
-  username = "admin";
-  password = "admin";
+  username = "";
+  password = "";
   _error = "";
 
 

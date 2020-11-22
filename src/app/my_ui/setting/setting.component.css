@@ -1,0 +1,54 @@
+
+.mat-tab-label {
+  min-width: 25px !important;
+  padding: 5px;
+  background-color: transparent;
+  color: black;
+  font-weight: 700;
+}
+
+.mat-tab-group
+{
+margin-left: 200px;
+margin-right: 200px;
+margin-top: 50px;
+background-color: transparent; 
+}
+
+
+
+/* Styles for the active tab label */
+/* .mat-tab-label.mat-tab-label-active {
+  min-width: 25px !important;
+  padding: 5px;
+  background-color: transparent;
+  color: red;
+  font-weight: 700;
+} */
+
+/* Styles for the ink bar */
+/* .mat-ink-bar {
+  background-color: green;
+} */
+
+
+
+
+.cir{
+  margin-left: 300px;
+  margin-top: 50px;
+}
+
+
+
+.parallax {
+  /* The image used */
+
+  /* Set a specific height */
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

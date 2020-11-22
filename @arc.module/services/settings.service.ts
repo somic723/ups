@@ -1,3 +1,5 @@
+import { RoutineService } from './routine.service';
+import { HubService } from './hub.service';
 import { ISettings } from '@arc.module/models/interfaces/settings.interface';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -24,8 +26,8 @@ export class SettingsService {
       .get('/assets/settings.json')
       .toPromise()
       .then(res => {
-
         this._json = res as ISettings;
+
         return true;
 
       });

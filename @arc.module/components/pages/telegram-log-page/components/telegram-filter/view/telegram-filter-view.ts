@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms'
 import { ITelegramLogFilter } from '@arc.module/models/interfaces/telegram-log-filter.interface';
 import { ITelegram } from '@arc.module/models/interfaces/telegram.interface';
 import { IUnit } from '@arc.module/models/interfaces/unit.interface';
+import { DateUtility } from '@arc.module/utilities/DateUtility';
 
 
 
@@ -112,6 +113,10 @@ export class TelegramFilterView implements OnInit, OnDestroy {
 
       this.selectedTimeTo = toDate.getHours().toString() + ':' + toDate.getMinutes().toString();
       this.selectedTimeFrom = fromDate.getHours().toString() + ':' + fromDate.getMinutes().toString();
+
+
+      console.warn("this.selectedTimeTo", this.selectedTimeTo)
+      console.warn("this.selectedTimeFrom", this.selectedTimeFrom)
     }
   }
 
@@ -133,32 +138,31 @@ export class TelegramFilterView implements OnInit, OnDestroy {
     let completeDateFrom: Date = null;
     if (this.selectedTimeFrom) {
 
-      const t1: any = this.selectedTimeFrom.toString().split(' ');
-      const t2: any = t1[0].split(':');
-      t2[0] = (t1[1] === 'PM' ? (1 * t2[0] + 12) : t2[0]);
-      const time24 = (t2[0] < 10 ? '0' + t2[0] : t2[0]) + ':' + t2[1];
-      completeDateFrom = new Date(this.selectedFrom.toString().replace("00:00", time24.toString()));
+      console.warn("selectedTimeTo", this.selectedTimeFrom.split(':'))
+      let time = this.selectedTimeFrom.split(':')
+      this.selectedFrom.setHours(Number(time[0]));
+      this.selectedFrom.setMinutes(Number(time[1]));
+      console.warn("this.selectedTo", this.selectedFrom);
+      completeDateFrom = this.selectedFrom
+
     }
     else if (this.selectedFrom) {
       completeDateFrom = new Date(this.selectedFrom.toString())
     }
 
     if (this.selectedTimeTo) {
-      const t11: any = this.selectedTimeTo.toString().split(' ');
-      const t12: any = t11[0].split(':');
-      t12[0] = (t11[1] === 'PM' ? (1 * t12[0] + 12) : t12[0]);
-      const time124 = (t12[0] < 10 ? '0' + t12[0] : t12[0]) + ':' + t12[1];
-      completeDateto = new Date(this.selectedTo.toString().replace("00:00", time124.toString()));
+      console.warn("selectedTimeTo", this.selectedTimeTo.split(':'))
+      let time = this.selectedTimeTo.split(':')
+      this.selectedTo.setHours(Number(time[0]))
+      this.selectedTo.setMinutes(Number(time[1]))
+      console.warn("this.selectedTo", this.selectedTo)
+      completeDateto = this.selectedTo
 
     }
     else if (this.selectedTo) {
       completeDateto = new Date(this.selectedTo.toString().replace("00:00:00", "23:59:59"));
     }
 
-    // let tempTelegramIds: number[] = [];
-    // this.selectedTelegrams?.forEach(element => {
-    //   tempTelegramIds.push(element.telegramId);
-    // });
     this.lastFilters = {
       direction: 1,
       lastLogId: 0,
@@ -167,14 +171,23 @@ export class TelegramFilterView implements OnInit, OnDestroy {
       responseTelegramId: this.selectedResponseTelegramId,
       receiverFk: this.selectedReciver,
       senderFk: this.selectedSender,
-      fromDate: completeDateFrom,
-      toDate: completeDateto
+      fromDate: completeDateFrom ? DateUtility.toApiDate(completeDateFrom) : null,
+      toDate: completeDateto ? DateUtility.toApiDate(completeDateto) : null
     };
+
+    console.warn(this.lastFilters)
     this.filterClick.emit(this.lastFilters);
 
   }
 
-
+  getSelectedTimeFrom(selectedTimeFrom) {
+    console.warn("selectedTimeFrom", selectedTimeFrom)
+    this.selectedTimeFrom = selectedTimeFrom
+  }
+  getSelectedTimeTo(selectedTimeTo) {
+    console.warn("selectedTimeTo", selectedTimeTo)
+    this.selectedTimeTo = selectedTimeTo
+  }
 
   // add(event: MatChipInputEvent, caller: string): void {
   //   const input = event.input;

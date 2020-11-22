@@ -108,8 +108,8 @@ export class AlertLogfilterView implements OnInit {
       this.filterForm.getRawValue()
     );
     //scroll to list
-    let el = document.getElementById('tableResult');
-    el.scrollIntoView({ behavior: "smooth" });
+    // let el = document.getElementById('tableResult');
+    // el.scrollIntoView({ behavior: "smooth" });
   }
 
   resetForm() {

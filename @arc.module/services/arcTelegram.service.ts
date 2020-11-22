@@ -1,9 +1,11 @@
+import { TokenService } from './token.service';
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AuthService } from './auth.service';
 // import { SettingsService } from '../../public-api';
 import { SettingsService } from './settings.service';
 import { Telegram } from '@arc.module/models/classes/telegram.class';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: "root"
@@ -14,7 +16,10 @@ export class ArcTelegramService {
   constructor(
     private http: HttpClient,
     private settings: SettingsService,
-    private auth: AuthService
+    private tokenService: TokenService,
+    private router: Router,
+
+    // private auth: AuthService
 
   ) {
 
@@ -22,7 +27,7 @@ export class ArcTelegramService {
 
   async send(
     telegram: Telegram,
-    showInConsole = true
+    showInConsole = false
   ): Promise<Telegram> {
 
     const url = await this.settings.json.serverAddresses[0] + `/Api/arc?telId=${telegram.telId}`;
@@ -41,9 +46,9 @@ export class ArcTelegramService {
 
     let header = new HttpHeaders();
     headers = header.append('content-type', 'application/json');
-    headers = header.append('Authorization', 'Bearer ' + this.auth.token);
+    headers = header.append('Authorization', 'Bearer ' + this.tokenService.token);
 
-    console.log(headers);
+
 
     //TODO: check for server not found and token expire
     const result: Promise<Telegram> = this.http
@@ -53,7 +58,7 @@ export class ArcTelegramService {
         if (data.telId === 0) {
           console.error(data);
         }
-        console.log(data);
+        //console.log(data);
 
         return data;
       })
@@ -68,7 +73,14 @@ export class ArcTelegramService {
 
   private handleError(error: Response) {
     // TODO: implement this
-    // console.error(error);
-    //throw error;
+    if (error.status === 401) {
+      localStorage.clear()
+      console.error(error);
+      this.router.navigate(["/login"]);
+    }
   }
+
+
+
+
 }

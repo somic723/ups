@@ -1,0 +1,71 @@
+.dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.example-header-image {
+    background-image: url('https://cdn2.iconfinder.com/data/icons/line-computer-devices-1/32/ups-512.png');
+    background-size: cover;
+  }
+
+.value-text {
+    margin: 0;
+}
+
+.title-text {
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+    color: grey;
+}
+
+.avatar-icon {
+    margin: 15px;
+    transform: scale(2);
+    color: blue;
+
+}
+
+.duration {
+    color: grey;
+}
+
+.difference-text {
+    text-align: left;
+    margin-top: 10px ;
+}
+
+.pad{
+    padding-left:20px
+}
+.btncolor{
+    margin-left:5px;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 12px;
+}
+.card-icon {
+    margin-right: 15px;
+}
+
+.card-header {
+    margin-top:-30px;
+    justify-content: center;
+}
+
+.green-text {
+    color: green;
+}
+
+.red-text {
+    color: red;
+}

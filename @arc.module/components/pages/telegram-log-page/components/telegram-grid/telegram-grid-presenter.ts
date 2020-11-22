@@ -28,7 +28,7 @@ import { ITelegram } from '@arc.module/models/interfaces/telegram.interface';
   template: `<telegram-grid-view
   (sendtelegramClick)="onsendtelegramClick($event)"
   (pagerFilter)="searchByPaginator($event)"
-  (telegramLogSeletced)="telegramLogSeletced($event)"
+  (telegramLogSelected)="telegramLogSelected($event)"
   [telegramLogList]="telegramLogList"
   [selectedTelegramLogData]="selectedTelegramLogData"
   [allUnits]="allUnits"
@@ -38,35 +38,40 @@ import { ITelegram } from '@arc.module/models/interfaces/telegram.interface';
 })
 export class TelegramGridPresenter implements OnInit, OnDestroy {
 
-  private _toUnsubscribe: Subscription[] = [];
+  // private _toUnsubscribe: Subscription[] = [];
+  private destroy: Subject<void> = new Subject<void>()
   pageNumber: number
   filterData: ITelegramLogFilter
   telegramLogList: ITelegramLogList
   selectedTelegramLogData: IFullTelegramLogItem
   allUnits: IUnit[] = [];
   telegrams: ITelegram[];
-
   constructor(
     private telegramDefinitionService: TelegramDefinitionPageService,
     private telegramLogService: TelegramLogPageService,
     private menuPageService: MenuPageService
   ) {
-    this._toUnsubscribe.push(
-      telegramLogService.searchResult.subscribe(data => {
-        this.telegramLogList = data;
-      })
-    );
+    // this._toUnsubscribe.push(
+    telegramLogService.searchResult.pipe(
+      takeUntil(this.destroy)
+    ).subscribe(data => {
+      this.telegramLogList = data;
+    })
+    // );
   }
 
   ngOnDestroy(): void {
-    this._toUnsubscribe.forEach(element => {
-      element.unsubscribe();
-    });
+    // this._toUnsubscribe.forEach(element => {
+    //   element.unsubscribe();
+    // });
+    this.destroy.next()
+    this.destroy.complete()
   }
 
   async ngOnInit() {
     this.allUnits = await this.menuPageService.GetAllUnits2()
     this.telegrams = await this.telegramDefinitionService.GetTelegrams();
+    console.warn(this.selectedTelegramLogData)
   }
 
   searchByPaginator(event: ITelegramLogFilter) {
@@ -83,7 +88,7 @@ export class TelegramGridPresenter implements OnInit, OnDestroy {
     // };
   }
 
-  async telegramLogSeletced(telegramLogId: number) {
+  async telegramLogSelected(telegramLogId: number) {
     this.selectedTelegramLogData = await this.telegramLogService.getFullTelegramLog(telegramLogId);
   }
 

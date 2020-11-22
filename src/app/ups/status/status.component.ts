@@ -66,7 +66,6 @@ export class StatusComponent implements OnInit {
   //#region constructor
   constructor(public dialog: MatDialog, public TelService: MyTelegramService
   ) {
-    this.getBatteryInfo();
 
 
   }
@@ -75,24 +74,24 @@ export class StatusComponent implements OnInit {
   //#region function
 
 
-  getBatteryInfo() {
+  // getBatteryInfo() {
 
-    console.log("start")
-    this.TelService.getBatteryInfo(1).subscribe(res => {
-      console.log(res)
-      if (res.telData.upsInfoList[0].upscode==1) {
-        this.dataSource = res.telData as PeriodicElement[];
-      } else if(res.telData.upsInfoList[1].upscode==2) {
-        this.dataSource1 = res.telData as PeriodicElement[];
-      }
-      else{
-        // TODO: rectify
-        console.log("not");
-      }
+  //   console.log("start")
+  //   this.TelService.getBatteryInfo(1).subscribe(res => {
+  //     console.log(res)
+  //     if (res.telData.upsInfoList[0].upscode==1) {
+  //       this.dataSource = res.telData as PeriodicElement[];
+  //     } else if(res.telData.upsInfoList[1].upscode==2) {
+  //       this.dataSource1 = res.telData as PeriodicElement[];
+  //     }
+  //     else{
+  //       // TODO: rectify
+  //       console.log("not");
+  //     }
       
 
-    });
-  }
+  //   });
+  // }
 
   openDialog() {
     this.dialog.open(IdentificationComponent, {

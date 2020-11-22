@@ -6,5 +6,6 @@ export interface IReport {
   revision: String;
   reportGroupFk: number;
   position: number;
+  serverAddress?: string;
   connectUgReport?: IConnectUgReport[];
 }

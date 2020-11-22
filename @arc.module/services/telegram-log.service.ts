@@ -12,6 +12,7 @@ import { ITelegramLogList } from '@arc.module/models/interfaces/telegram-log-lis
 import { IFullTelegramLogItem } from '@arc.module/models/interfaces/full-telegram-log-item.interface';
 import { ITelegramSimulate } from '@arc.module/models/interfaces/telegram-simulate.interface';
 import { Telegram } from '@arc.module/models/classes/telegram.class';
+import { DateUtility } from '@arc.module/utilities/DateUtility';
 
 
 @Injectable({
@@ -32,6 +33,7 @@ export class TelegramLogPageService {
   constructor(private telService: ArcTelegramService, private telegramDefinitionPageService: TelegramDefinitionPageService) {
 
     this.datafilter.subscribe(filters => {
+      console.warn("filters", filters)
       if (filters !== null) {
         if (filters.lastLogId) {                                    //called by paginator
           this.latestFilterData.direction = filters.direction;

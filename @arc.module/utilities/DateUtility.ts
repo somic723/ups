@@ -328,4 +328,9 @@ export class DateUtility {
 
     return false;
   }
+
+  static toApiDate(date: Date): string {
+    const dateString = moment(date).format("MM/DD/YYYY HH:mm:ss");
+    return dateString;
+  }
 }

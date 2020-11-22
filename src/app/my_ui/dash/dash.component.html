@@ -1,0 +1,57 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
+    <!--Mini Cards-->
+    <mat-grid-tile *ngFor="let mc of miniCardData" [colspan]="( cardLayout | async )?.miniCard.cols"
+     
+    [rowspan]="( cardLayout | async )?.miniCard.rows">
+      <app-mini-card [UPSName]="mc.UPSName">
+    
+    </app-mini-card>
+    </mat-grid-tile>
+    <!--Charts-->
+    <!-- <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="Monthly Revenue">
+        <app-annual-sale-chart></app-annual-sale-chart>
+      </app-card>
+    </mat-grid-tile> -->
+    <!-- <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="Product Sales">
+        <app-product-sales-chart></app-product-sales-chart>
+      </app-card>
+    </mat-grid-tile> -->
+    <!-- <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="Sales by Traffic Source">
+        <app-sales-traffic-chart></app-sales-traffic-chart>
+      </app-card>
+    </mat-grid-tile> -->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="Input Chart">
+        <app-store-sessions-chart></app-store-sessions-chart>
+      </app-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="Output Chart">
+        <app-output></app-output>
+      </app-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="ByPass Chart">
+        <app-bypass></app-bypass>
+      </app-card>
+    </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+     
+    </mat-grid-tile>
+    
+  </mat-grid-list>
+  <header> 
+    <h3>Alarm Table</h3>
+  </header> 
+
+  <app-alarmtable></app-alarmtable>
+
+</div>

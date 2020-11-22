@@ -4,9 +4,9 @@
       power_settings_new
     </mat-icon>
   </div>
-  <div style="width: 70%; display: inline-block;cursor: pointer;" (click)="editUser()">
-    <div><b>{{auth.user.name+' '+auth.user.family}}</b></div>
-    <div>({{auth.user.userGroupFk}})</div>
+  <div style="width: 70%; display: inline-block;cursor: pointer;direction: rtl;" (click)="editUser()">
+    <div><b>{{this.user?.name + ' ' + this.user?.family}}</b></div>
+    <div>({{this.user?.groupId}})</div>
   </div>
 </div>
 <mat-divider style="margin-top: 1rem;"></mat-divider>
@@ -37,8 +37,8 @@
           </mat-panel-title>
 
         </mat-expansion-panel-header>
-        <button *ngFor="let report of group.reports" mat-button color="primary"
-          style="width: 100%;">{{report.title}}</button>
+        <button *ngFor="let report of group.reports" mat-button color="primary" style="width: 100%;"
+          (click)="navigateToReport(report)">{{report.title}}</button>
 
       </mat-expansion-panel>
     </mat-accordion>

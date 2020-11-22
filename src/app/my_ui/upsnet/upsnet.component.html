@@ -1,0 +1,131 @@
+<div class="example-large-box mat-elevation-z4">
+    <div class="net-image">
+
+
+      <form class="net-form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+
+        <table>
+          <!-- *ngFor="let data of dataSource;"   -->
+          <tbody>
+
+            <tr>
+
+              <td>
+                <label class="net-lbl" for="Student">Host Name:</label>
+              </td>
+              <td>
+                <input class="net-lbl" matInput placeholder="GEDE-SNMP-UPS-Interface" name="HostName"
+                  value="HosteName" ngModel required #HostName="ngModel">
+              </td>
+
+            </tr>
+          </tbody>
+
+        </table>
+        <div>
+          <mat-radio-group [formControl]="floatLabelControl">
+            <mat-radio-button class="net-lbl" value="DHCP" name="DHCP" value="DHCP" ngModel required
+              #HostName="ngModel">Obtain IP by DHCP</mat-radio-button>
+            <br>
+            <mat-radio-button class="net-lbl" value="BOOTP" name="BOOTP" value="BOOTP" ngModel required
+              #HostName="ngModel">Obtain IP by BOOTP</mat-radio-button>
+            <br>
+            <mat-radio-button class="net-lbl" value="address" name="address" value="address" ngModel required
+              #HostName="ngModel">Static IP address</mat-radio-button>
+          </mat-radio-group>
+          <table style="margin-left: 50px;">
+            <!-- *ngFor="let data of dataSource;"   -->
+            <tbody>
+              <tr>
+
+                <td>
+                  <label class="net-lbl" for="Student">IP Address:</label>
+                </td>
+                <td>
+                  <input class="net-lbl" matInput placeholder="IPAddress" value="IPAddress" name="IPAddress" ngModel
+                    required #HostName="ngModel">
+                </td>
+
+              </tr>
+
+              <!--  -->
+              <tr>
+
+                <td>
+                  <label class="net-lbl" for="Student">Subnet Mask:</label>
+                </td>
+                <td>
+                  <input class="net-lbl" matInput placeholder="Subnet Mask" value="subnet" name="subnet" ngModel
+                    required #HostName="ngModel">
+                </td>
+
+              </tr>
+              <!--  -->
+              <tr>
+
+                <td>
+                  <label class="net-lbl" for="Student">Gatway:</label>
+                </td>
+                <td>
+                  <input class="net-lbl" matInput placeholder="Getway" value="Getway" name="Getway" ngModel required
+                    #HostName="ngModel">
+                </td>
+
+              </tr>
+              <!--  -->
+            </tbody>
+
+          </table>
+          <mat-radio-group [formControl]="floatLabelControl">
+
+            <mat-radio-button class="net-lbl" value="DNS_Automatically" name="DNS_Automatically" ngModel required
+              #HostName="ngModel">Obtain DNS Automatically</mat-radio-button>
+            <br>
+            <mat-radio-button class="net-lbl" value="DNS_Manually" name="DNS_Manually" ngModel required
+              #HostName="ngModel">Set DNS Manually</mat-radio-button>
+            <br>
+            <table style="margin-left: 50px;">
+              <!-- *ngFor="let data of dataSource;"   -->
+              <tbody>
+
+
+                <!--  -->
+                <tr>
+
+                  <td>
+                    <label class="net-lbl" for="Student">Primary DNS:</label>
+                  </td>
+                  <td>
+                    <input class="net-lbl" matInput placeholder="Primary DNS" value="Primary" name="Primary" ngModel
+                      required #HostName="ngModel">
+                  </td>
+
+                </tr>
+                <!--  -->
+                <tr>
+
+                  <td>
+                    <label class="net-lbl" for="Student">Secondary DNS:</label>
+                  </td>
+                  <td>
+                    <input class="net-lbl" matInput placeholder="Secondary DNS" value="Secondary" name="Secondary"
+                      ngModel required #HostName="ngModel">
+                  </td>
+
+                </tr>
+                <!--  -->
+
+              </tbody>
+
+            </table>
+
+          </mat-radio-group>
+        </div>
+
+        <button class="btncolor1" type="submit">Submit</button>
+        <button class="btncolor4">Defsult</button>
+        <button class="btncolor3">Refresh</button>
+      </form>
+    </div>
+
+  </div>

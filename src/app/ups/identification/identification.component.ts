@@ -44,20 +44,20 @@ export class IdentificationComponent implements OnInit {
   getBatteryInfo() {
 
     console.log("start")
-    this.TelService.getBatteryInfo(1).subscribe(res => {
-      console.log(res)
-      if (res.telData.upsInfoList[0].upscode==1) {
-        this.dataSource = res.telData as PeriodicElement[];
-      } else if(res.telData.upsInfoList[1].upscode==2) {
-        this.dataSource = res.telData as PeriodicElement[];
-      }
-      else{
-        // TODO: rectify
-        console.log("not");
-      }
+    // this.TelService.getBatteryInfo(1).subscribe(res => {
+    //   console.log(res)
+    //   if (res.telData.upsInfoList[0].upscode==1) {
+    //     this.dataSource = res.telData as PeriodicElement[];
+    //   } else if(res.telData.upsInfoList[1].upscode==2) {
+    //     this.dataSource = res.telData as PeriodicElement[];
+    //   }
+    //   else{
+    //     // TODO: rectify
+    //     console.log("not");
+    //   }
       
 
-    });
+    // });
   }
   ngOnInit(): void {
   }

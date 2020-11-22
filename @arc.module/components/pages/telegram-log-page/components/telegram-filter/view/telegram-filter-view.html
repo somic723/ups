@@ -25,7 +25,7 @@
         </mat-select>
       </mat-form-field>
 
-        <!-- <mat-form-field style="width: 100%;" fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.gt-sm="0 2 calc(50% - 17px)">
+      <!-- <mat-form-field style="width: 100%;" fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.gt-sm="0 2 calc(50% - 17px)">
           <mat-chip-list #chipList aria-label="Fruit selection">
             <mat-chip *ngFor="let telegram of selectedTelegrams" [selectable]="true" [removable]="true"
               (removed)="remove(telegram)">
@@ -91,12 +91,14 @@
         <mat-datepicker #picker1></mat-datepicker>
       </mat-form-field>
 
-      <mat-form-field fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.md="0 1 calc(33% - 17px)"
-        fxFlex.gt-md="0 1 calc(25% - 17px)">
-        <input [disabled]="!selectedFrom" matInput [(ngModel)]="selectedTimeFrom" (ngModelChange)="selectedHour=null"
-          [ngxTimepicker]="timepicker1" placeholder="start time" />
-        <ngx-material-timepicker #timepicker1></ngx-material-timepicker>
-      </mat-form-field>
+      <div fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.md="0 1 calc(33% - 17px)" fxFlex.gt-md="0 1 calc(25% - 17px)">
+        <!-- <input [disabled]="!selectedFrom" matInput [(ngModel)]="selectedTimeFrom" (ngModelChange)="selectedHour=null"
+          [ngxTimepicker]="timepicker1" placeholder="start time" /> -->
+        <!-- <ngx-material-timepicker #timepicker1></ngx-material-timepicker> -->
+        <ngx-timepicker-field [(ngModel)]="selectedTimeFrom" (ngModelChange)="selectedHour=null" #timepicker1
+          [controlOnly]="true" (timeChanged)="getSelectedTimeFrom($event)" [format]="24">
+        </ngx-timepicker-field>
+      </div>
 
       <mat-form-field fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.md="0 1 calc(33% - 17px)"
         fxFlex.gt-md="0 1 calc(25% - 17px)">
@@ -106,12 +108,13 @@
         <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
 
-      <mat-form-field fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.md="0 1 calc(33% - 17px)"
-        fxFlex.gt-md="0 1 calc(25% - 17px)">
-        <input [disabled]="!selectedTo" [(ngModel)]="selectedTimeTo" (ngModelChange)="selectedHour=null" matInput
-          [ngxTimepicker]="timepicker2" placeholder="end time" />
-        <ngx-material-timepicker #timepicker2></ngx-material-timepicker>
-      </mat-form-field>
+      <div fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.md="0 1 calc(33% - 17px)" fxFlex.gt-md="0 1 calc(25% - 17px)">
+        <!-- <input [disabled]="!selectedTo" [(ngModel)]="selectedTimeTo" (ngModelChange)="selectedHour=null" matInput
+          [ngxTimepicker]="timepicker2" placeholder="end time" /> -->
+        <ngx-timepicker-field [(ngModel)]="selectedTimeTo" (ngModelChange)="selectedHour=null" #timepicker2
+          [controlOnly]="true" (timeChanged)="getSelectedTimeTo($event)" [format]="24">
+        </ngx-timepicker-field>
+      </div>
 
       <mat-form-field fxFlex.sm="0 1 calc(50% - 17px)" fxFlex.md="0 1 calc(33% - 17px)"
         fxFlex.gt-md="0 1 calc(25% - 17px)">

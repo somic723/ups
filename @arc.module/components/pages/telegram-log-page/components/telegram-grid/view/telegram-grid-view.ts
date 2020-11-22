@@ -28,10 +28,31 @@ export class TelegramGridView implements OnInit {
     this.selectedTelegramLogData = null;
     this.telegramLogList = value;
     this.selectedRowIndex = null;
+    console.warn("telegramLogList view", this.telegramLogList)
   }
 
   @Input() telegrams: ITelegram[];
-  @Input() selectedTelegramLogData: IFullTelegramLogItem;
+
+  // requestData: JSON = {} as JSON
+  // responseData: JSON = {} as JSON
+  requestData
+  responseData
+  private _selectedTelegramLogData: IFullTelegramLogItem
+  @Input() set selectedTelegramLogData(val: IFullTelegramLogItem) {
+    if (val) {
+      this._selectedTelegramLogData = val
+      // this.requestData = JSON.parse(this._selectedTelegramLogData?.requestData);
+      // this.responseData = JSON.parse(this._selectedTelegramLogData?.responseData);
+      this.requestData = JSON.parse(this._selectedTelegramLogData?.requestData);
+      this.responseData = JSON.parse(this._selectedTelegramLogData?.responseData);
+    }
+  };
+
+  get selectedTelegramLogData(): IFullTelegramLogItem {
+    return this._selectedTelegramLogData
+  }
+
+
   @Input() allUnits: IUnit[];
   @Output() pagerFilter: EventEmitter<ITelegramLogFilter> = new EventEmitter<ITelegramLogFilter>();
   @Output() telegramLogSelected: EventEmitter<number> = new EventEmitter<number>();

@@ -3,4 +3,5 @@ export interface ISettings {
   serverAddresses: string[];
   language: string;
   footerAlertCount: number;
+
 }

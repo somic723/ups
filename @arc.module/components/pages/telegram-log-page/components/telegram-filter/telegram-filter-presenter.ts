@@ -7,15 +7,16 @@ import { TelegramDefinitionPageService } from '../../../../../services/telegram-
 import { IUnit } from '@arc.module/models/interfaces/unit.interface';
 import { ITelegramLogFilter } from '@arc.module/models/interfaces/telegram-log-filter.interface';
 import { ITelegram } from '@arc.module/models/interfaces/telegram.interface';
+import { Observable, Subject } from 'rxjs';
 
 
 @Component({
   selector: 'telegram-filter-presenter',
   template: `<telegram-filter-view
   (filterClick)="onFilterClick($event)"
-  [lastHours]='lastHours'
-  [telegrams]='telegrams'
-  [units]='units'
+  [lastHours]="lastHours"
+  [telegrams]="telegrams"
+  [units]="units"
   ></telegram-filter-view>`
 })
 export class TelegramFilterPresenter implements OnInit {
@@ -24,14 +25,12 @@ export class TelegramFilterPresenter implements OnInit {
   units: IUnit[];
   lastHours: number[];
   telegramfilter: ITelegramLogFilter;
-
   constructor(
     private telegramservice: TelegramLogPageService,
     private menuPageService: MenuPageService,
     private telegramDefinitionService: TelegramDefinitionPageService
-  ) {
+  ) { }
 
-  }
 
   onFilterClick(telegramfilter: ITelegramLogFilter) {
     this.telegramservice.datafilter.next(telegramfilter);

@@ -1,0 +1,43 @@
+<div>
+
+
+
+    <input type="text" [(ngModel)]="value1">
+
+    <button (click)="addElement()">Add element</button>
+
+    <div class="example-container mat-elevation-z8">
+
+      <mat-table #table [dataSource]="add_dataSource">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="system">
+          <mat-header-cell *matHeaderCellDef> system </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.system}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="condition">
+          <mat-header-cell *matHeaderCellDef> condition </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.condition}} </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="value">
+          <mat-header-cell *matHeaderCellDef> value </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.value}} </mat-cell>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef> status </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="addColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: addColumns;"></mat-row>
+      </mat-table>
+    </div>
+
+
+  </div>

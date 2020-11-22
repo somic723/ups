@@ -7,34 +7,30 @@ import { ShiftPagePresenter } from '@arc.module/components/pages/shift-page/shif
 import { LoginPagePresenter } from '@arc.module/components/pages/login-page/login-page-presenter';
 import { UserPagePresenter } from '@arc.module/components/pages/user-page/user-page-presenter';
 import { ReportDefinitionPagePresenter } from '@arc.module/components/pages/report-definition-page/report-definition-page-presenter';
-
-
-import { MainupsComponent } from './ups/mainups/mainups.component';
-
+import { SettingComponent } from '../app/my_ui/setting/setting.component';
 
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { Route } from '@angular/compiler/src/core';
+import { ARC_ROUTES } from '@arc.module/arc.module';
+import { DashComponent } from './my_ui/dash/dash.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginPagePresenter },
-  { path: 'shift-definition', component: ShiftPagePresenter },
-  { path: 'alert-log', component: AlertLogPagePresenter },
-  { path: 'alert-definition', component: AlertDefinitionPagePresenter },
-  { path: 'menu-definition', component: MenuPagePresenter },
-  { path: 'user-definition', component: UserPagePresenter },
-  { path: 'report-definition', component: ReportDefinitionPagePresenter },
-  { path: 'telegram-modification', component: TelegramModificationPagePresenter },
-  { path: 'telegram-log', component: TelegramLogPagePresenter },
-  { path: 'entry', component: MainupsComponent },
+  ...ARC_ROUTES,
 
-];
+
+  { path: 'dashboard', component: DashComponent },
+
+   { path: 'setting', component: SettingComponent }
+
+
+]
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -20,10 +20,12 @@ export class LoginPagePresenter implements OnInit {
     public settings: SettingsService
   ) { }
 
-  async ngOnInit() {
+  ngOnInit() {
+    this.auth.loginStatus.next(false)
+    this.auth.logOut();
   }
   tryLogin(event) {
-    console.log(event);
+
     this.error = "";
     this.auth.login(event.username, event.password).then(res => {
       if (res != "SUCCESS") {
