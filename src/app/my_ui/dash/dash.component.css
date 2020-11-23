@@ -1,6 +1,8 @@
 .grid-container {
   margin: 20px;
+  background-color: transparent;
 }
+
 
 app-line-chart, app-bar-chart, app-radar-chart, app-pie-chart {
   flex-grow: 1;
@@ -8,4 +10,18 @@ app-line-chart, app-bar-chart, app-radar-chart, app-pie-chart {
 
 app-table{
   height: 700px !important;
+}
+
+
+.example-card {
+  max-width: 200px;
+}
+.example-card1 {
+  margin-left: 30px;
+  max-width: 300px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
 }

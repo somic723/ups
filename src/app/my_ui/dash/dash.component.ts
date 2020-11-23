@@ -11,6 +11,7 @@ import { StoreSummary } from '../store-summary/store-summary';
 })
 
 export class DashComponent implements OnInit{
+
   cardLayout = this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet]).pipe(
     map(({ matches }) => {
       if (matches) { 

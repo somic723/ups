@@ -65,6 +65,20 @@ import { UpscontrolComponent } from './my_ui/upscontrol/upscontrol.component';
 import { UpsconnectComponent } from './my_ui/upsconnect/upsconnect.component';
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { Input1Component } from './my_ui/dash/ups1/input1/input1.component';
+import { Output1Component } from './my_ui/dash/ups1/output1/output1.component';
+import { Bypass1Component } from './my_ui/dash/ups1/bypass1/bypass1.component';
+import { Temp1Component } from './my_ui/dash/ups1/temp1/temp1.component';
+import { Battery1Component } from './my_ui/dash/ups1/battery1/battery1.component';
+import { Batteryinfo1Component } from './my_ui/dash/ups1/batteryinfo1/batteryinfo1.component';
+import { Input2Component } from './my_ui/dash/ups2/input2/input2.component';
+import { Output2Component } from './my_ui/dash/ups2/output2/output2.component';
+import { Bypassput2Component } from './my_ui/dash/ups2/bypassput2/bypassput2.component';
+import { Battery2Component } from './my_ui/dash/ups2/battery2/battery2.component';
+import { Batteryinfo2Component } from './my_ui/dash/ups2/batteryinfo2/batteryinfo2.component';
+import { Temp2Component } from './my_ui/dash/ups2/temp2/temp2.component';
+import { Status2Component } from './my_ui/dash/ups2/status2/status2.component';
+import { Status1Component } from './my_ui/dash/ups1/status1/status1.component';
 
 
 function load(http: HttpClient, service: SettingsService): (() => Promise<boolean>) {
@@ -92,7 +106,21 @@ function load(http: HttpClient, service: SettingsService): (() => Promise<boolea
      UpsnetComponent,
      UpsconfigComponent,
      UpscontrolComponent,
-     UpsconnectComponent
+     UpsconnectComponent,
+     Input1Component,
+     Output1Component,
+     Bypass1Component,
+     Temp1Component,
+     Battery1Component,
+     Batteryinfo1Component,
+     Input2Component,
+     Output2Component,
+     Bypassput2Component,
+     Battery2Component,
+     Batteryinfo2Component,
+     Temp2Component,
+     Status2Component,
+     Status1Component
 
   ],
   imports: [
