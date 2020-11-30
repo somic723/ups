@@ -2,10 +2,9 @@
     <div class="net-image">
 
 
-      <form class="net-form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <form class="net-form" >
 
         <table>
-          <!-- *ngFor="let data of dataSource;"   -->
           <tbody>
 
             <tr>
@@ -14,8 +13,7 @@
                 <label class="net-lbl" for="Student">Host Name:</label>
               </td>
               <td>
-                <input class="net-lbl" matInput placeholder="GEDE-SNMP-UPS-Interface" name="HostName"
-                  value="HosteName" ngModel required #HostName="ngModel">
+                <input class="net-lbl" matInput placeholder="GEDE-SNMP-UPS-Interface">
               </td>
 
             </tr>
@@ -24,17 +22,13 @@
         </table>
         <div>
           <mat-radio-group [formControl]="floatLabelControl">
-            <mat-radio-button class="net-lbl" value="DHCP" name="DHCP" value="DHCP" ngModel required
-              #HostName="ngModel">Obtain IP by DHCP</mat-radio-button>
+            <mat-radio-button class="net-lbl" value="DHCP" name="DHCP">Obtain IP by DHCP</mat-radio-button>
             <br>
-            <mat-radio-button class="net-lbl" value="BOOTP" name="BOOTP" value="BOOTP" ngModel required
-              #HostName="ngModel">Obtain IP by BOOTP</mat-radio-button>
+            <mat-radio-button class="net-lbl" value="BOOTP" name="BOOTP" >Obtain IP by BOOTP</mat-radio-button>
             <br>
-            <mat-radio-button class="net-lbl" value="address" name="address" value="address" ngModel required
-              #HostName="ngModel">Static IP address</mat-radio-button>
+            <mat-radio-button class="net-lbl" value="address" name="address">Static IP address</mat-radio-button>
           </mat-radio-group>
           <table style="margin-left: 50px;">
-            <!-- *ngFor="let data of dataSource;"   -->
             <tbody>
               <tr>
 
@@ -42,78 +36,65 @@
                   <label class="net-lbl" for="Student">IP Address:</label>
                 </td>
                 <td>
-                  <input class="net-lbl" matInput placeholder="IPAddress" value="IPAddress" name="IPAddress" ngModel
-                    required #HostName="ngModel">
+                  <input class="net-lbl" matInput placeholder="IPAddress" >
                 </td>
 
               </tr>
 
-              <!--  -->
               <tr>
 
                 <td>
                   <label class="net-lbl" for="Student">Subnet Mask:</label>
                 </td>
                 <td>
-                  <input class="net-lbl" matInput placeholder="Subnet Mask" value="subnet" name="subnet" ngModel
-                    required #HostName="ngModel">
+                  <input class="net-lbl" matInput placeholder="Subnet Mask" >
                 </td>
 
               </tr>
-              <!--  -->
               <tr>
 
                 <td>
                   <label class="net-lbl" for="Student">Gatway:</label>
                 </td>
                 <td>
-                  <input class="net-lbl" matInput placeholder="Getway" value="Getway" name="Getway" ngModel required
-                    #HostName="ngModel">
+                  <input class="net-lbl" matInput placeholder="Getway">
                 </td>
 
               </tr>
-              <!--  -->
             </tbody>
 
           </table>
           <mat-radio-group [formControl]="floatLabelControl">
 
-            <mat-radio-button class="net-lbl" value="DNS_Automatically" name="DNS_Automatically" ngModel required
-              #HostName="ngModel">Obtain DNS Automatically</mat-radio-button>
+            <mat-radio-button class="net-lbl" value="DNS_Automatically" name="DNS_Automatically">Obtain DNS Automatically</mat-radio-button>
             <br>
-            <mat-radio-button class="net-lbl" value="DNS_Manually" name="DNS_Manually" ngModel required
-              #HostName="ngModel">Set DNS Manually</mat-radio-button>
+            <mat-radio-button class="net-lbl" value="DNS_Manually" name="DNS_Manually" >Set DNS Manually</mat-radio-button>
             <br>
             <table style="margin-left: 50px;">
-              <!-- *ngFor="let data of dataSource;"   -->
               <tbody>
 
 
-                <!--  -->
                 <tr>
 
                   <td>
                     <label class="net-lbl" for="Student">Primary DNS:</label>
                   </td>
                   <td>
-                    <input class="net-lbl" matInput placeholder="Primary DNS" value="Primary" name="Primary" ngModel
-                      required #HostName="ngModel">
+                    <input class="net-lbl" matInput placeholder="Primary DNS" value="Primary" name="Primary" >
                   </td>
 
                 </tr>
-                <!--  -->
                 <tr>
 
                   <td>
                     <label class="net-lbl" for="Student">Secondary DNS:</label>
                   </td>
                   <td>
-                    <input class="net-lbl" matInput placeholder="Secondary DNS" value="Secondary" name="Secondary"
-                      ngModel required #HostName="ngModel">
+                    <input class="net-lbl" matInput placeholder="Secondary DNS"  name="Secondary"
+                   >
                   </td>
 
                 </tr>
-                <!--  -->
 
               </tbody>
 

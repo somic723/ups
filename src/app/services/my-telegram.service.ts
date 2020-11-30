@@ -9,6 +9,7 @@ import { TelegramService } from "../../../@arc.module/services/telegram.service"
 export class MyTelegramService {
 
 
+
   constructor(
     private telegramService: TelegramService,
     private http: HttpClient
@@ -62,7 +63,7 @@ getOutputStatus() {
 
 
 
-//#region output
+//#region bypass
 bypassStatus() {
   return this.telegramService.send({
     telId: 1104, telData: {
@@ -73,7 +74,7 @@ bypassStatus() {
 //#endregion
 
 
-//#region output
+//#region alarm
 get_Alarm() {
   return this.telegramService.send({
     
@@ -84,7 +85,66 @@ get_Alarm() {
 }
 //#endregion
 
+//#region control
+getControl() {
+  return this.telegramService.send({
+    
+    telId: 1120, telData: {
+    }
 
+  });
+}
 
+sendcontrol(value: any) {
+  console.log(value)
+  return this.telegramService.send({
+    telId: 1110, telData: 
+      value
+    
+
+  });  
+}
+
+getdefult() {
+  return this.telegramService.send({
+    
+    telId: 1121, telData: {
+    }
+
+  });
+}
+
+//#endregion
+
+//#region batteryinfo
+getBatteryInfo() {
+  return this.telegramService.send({
+    
+    telId: 1108, telData: {
+    }
+
+  });
+}
+//#endregion
+
+//#region config
+getConfig() {
+  return this.telegramService.send({
+    
+    telId: 1122, telData: {
+    }
+
+  });
+}
+
+configSubmit(value: any) {
+  console.log(value)
+  return this.telegramService.send({
+    telId: 1109, telData: 
+      value
+    
+  });  
+}
 
 }
+//#endregion

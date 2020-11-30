@@ -1,46 +1,45 @@
-<div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
 
 
 
       <!-- Position Column -->
       <ng-container matColumnDef="alarmName">
-        <th mat-header-cell *matHeaderCellDef> alarmName </th>
-        <td mat-cell *matCellDef="let element"> {{element.alarmName}} </td>
+        <th mat-header-cell style="text-align: center;" *matHeaderCellDef> alarmName </th>
+        <td mat-cell  *matCellDef="let element"> {{element.alarmName}} </td>
       </ng-container>
   
       <!-- Name Column -->
       <ng-container matColumnDef="alarmCode">
-        <th mat-header-cell *matHeaderCellDef> alarmCode </th>
+        <th mat-header-cell style="text-align: center;" *matHeaderCellDef> alarmCode </th>
         <td mat-cell *matCellDef="let element"> {{element.alarmCode}} </td>
       </ng-container>
   
       <!-- Weight Column -->
       <ng-container matColumnDef="alarmDescription">
-        <th mat-header-cell *matHeaderCellDef> alarmDescription </th>
-        <td mat-cell style="width: 500px;" *matCellDef="let element"> {{element.alarmDescription}} </td>
+        <th mat-header-cell style="text-align: center;" *matHeaderCellDef> alarmDescription </th>
+        <td mat-cell style="width: 400px;" *matCellDef="let element"> {{element.alarmDescription}} </td>
       </ng-container>
   
       <!-- Symbol Column -->
       <ng-container matColumnDef="alarmTimeFromUps">
-        <th mat-header-cell *matHeaderCellDef> alarmTimeFromUps </th>
+        <th mat-header-cell style="text-align: center;" *matHeaderCellDef> alarmTimeFromUps </th>
         <td mat-cell *matCellDef="let element"> {{element.alarmTimeFromUps}} </td>
       </ng-container>
 
 
       <ng-container matColumnDef="datetime">
-        <th mat-header-cell *matHeaderCellDef> datetime </th>
+        <th mat-header-cell style="text-align: center;" *matHeaderCellDef> datetime </th>
         <td mat-cell *matCellDef="let element"> {{element.datetime}} </td>
       </ng-container>
 
       <ng-container matColumnDef="upsCode">
-        <th mat-header-cell *matHeaderCellDef> upsCode </th>
+        <th mat-header-cell style="text-align: center;" *matHeaderCellDef> upsCode </th>
         <td mat-cell *matCellDef="let element"> {{element.upsCode}} </td>
       </ng-container>
 
 
       <ng-container matColumnDef="upsIpAddress">
-        <th mat-header-cell *matHeaderCellDef> upsIpAddress </th>
+        <th mat-header-cell style="text-align: center;" *matHeaderCellDef> upsIpAddress </th>
         <td mat-cell *matCellDef="let element"> {{element.upsIpAddress}} </td>
       </ng-container>
 
@@ -52,5 +51,4 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-  </div>
+    <mat-paginator style="margin-left:-300px; width: 150%;" [pageSizeOptions]="[5]" showFirstLastButtons></mat-paginator>

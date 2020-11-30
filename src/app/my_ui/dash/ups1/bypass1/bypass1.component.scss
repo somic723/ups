@@ -1,5 +1,5 @@
 .mat-card{
-    height:300px;
+    height:320px;
     // background: rgb(34,193,195);
     // background: linear-gradient(332deg, rgba(34,193,195,1) 0%, rgba(253,45,245,1) 100%);
     background: rgb(245,245,245);
@@ -8,7 +8,7 @@ background: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(46,204,196,1) 100
   }
   
   .mat-card::ng-deep.mat-card-header-text {
-    height: 120px;
+    height: 110px;
     width: 190px
   }
   .subtitle{
@@ -29,31 +29,22 @@ background: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(46,204,196,1) 100
   }
   .btn1{
     background-color:green ;
-    margin-left:70px;
     margin-top: 3px;
+    width: 80px;
+  
   }
   .btn2{
     background-color:gray ;
-    margin-left:95px;
     margin-top: 3px;
+    width: 80px;
+  
+  
   
   }
   .btn3{  
     background-color:green ;
-    margin-left: 15px;
-    margin-left:90px;
     margin-top: 3px;
-  
-  }
-  .btn4{
-    background-color:yellow ;
-    margin-left:60px;
-    margin-top: 3px;
-  
-  }
-  .btn5{
-    background-color:yellow ;
-    margin-left:58px;
-    margin-top: 3px;
+
+    width: 80px;
   
   }

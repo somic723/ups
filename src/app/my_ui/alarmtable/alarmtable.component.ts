@@ -44,7 +44,7 @@ export class AlarmtableComponent implements OnInit {
 
 
 
-  displayedColumns: string[] = ['alarmName', 'upsIpAddress','upsCode','datetime','alarmCode', 'alarmDescription', 'alarmTimeFromUps'];
+  displayedColumns: string[] = ['alarmName', 'upsIpAddress','upsCode','datetime','alarmCode', 'alarmTimeFromUps','alarmDescription'];
   
   dataSource = new MatTableDataSource<PeriodicElement>(this.ELEMENT_DATA);
 

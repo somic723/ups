@@ -1,6 +1,6 @@
 {
   "appTitle": "UI TEMPLATE",
-  "serverAddresses": ["http://172.25.17.27:5010"],
+  "serverAddresses": ["http://localhost:5000"],
   "language": "en",
   "footerAlertCount": 5
 }

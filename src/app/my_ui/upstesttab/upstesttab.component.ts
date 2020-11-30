@@ -106,11 +106,9 @@ spinnerButtonOptions: MatProgressButtonOptions = {
   testSubmit() {
 
   
-    console.warn('sdad')
     const TestCode=this.upstest.value.TestDescription.testCode;
     const TestDescription= this.upstest.value.TestDescription.testDescription;
     const UpsCode= this.upstest.value.UpsCode;
-    console.warn(TestDescription)
 
     const telData={"UpsCode":UpsCode,"TestCode":TestCode,"TestDescription":TestDescription}
    

@@ -1,55 +1,103 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-subtitle class="subtitle">Out Put</mat-card-subtitle>
+
+    <mat-card-title class="title">{{voltV}} Volt</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table>
+      <tr>
+          <td>
+      <tr>
+          <td class="label">
+              <div style="margin-right: 80px;">
+                <span class="lable">Frequency</span>
+              </div>
+  
+          </td>
+          <td>
+              <div >
+                <button mat-button class="btn1">{{freqHz}} Hz</button>
+  
+              </div>
+          </td>
+      </tr>
+      <tr>
+          <td class="label">
+              <div style="margin-right: 80px;">
+                <span class="lable">Power</span>
+
+              </div>
+  
+          </td>
+          <td>
+              <div>
+                <button mat-button class="btn2">{{powerW}} W</button>
+
+              </div>
+          </td>
+      </tr>
+      <tr>
+          <td class="label">
+              <div style="margin-right: 80px;">
+                <span class="lable">Current</span>
+  
+              </div>
+  
+          </td>
+          <td>
+              <div>
+                <button mat-button class="btn3">{{currA}} A</button>
+  
+              </div>
+          </td>
+      </tr>
+      <tr>
+          <td class="label">
+              <div style="margin-right: 80px;">
+                <span class="lable">Load</span>
+
+              </div>
+  
+          </td>
+          <td>
+              <div >
+                <button mat-button class="btn4">{{load}} %</button>
+  
+              </div>
+  
+          </td>
+      </tr>
+  
 
 
-<mat-card >
-    <mat-card-header>
-        <mat-card-subtitle class="subtitle">Out Put</mat-card-subtitle>
+      <tr>
+        <td class="label">
+            <div style="margin-right: 80px;">
+              <span class="lable">Source</span>
 
-      <mat-card-title class="title">230 c</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <div class="flex-row">
-            <div class="temp">
-             
-              <span class="lable">Frequency</span>
-              <button mat-button class="btn1">Primary</button>
             </div>
-           
-      </div>
-      <div class="flex-row">
-        <div class="temp">
-         
-          <span class="lable">Power</span>
-          <button mat-button class="btn2">Primary</button>
-        </div>
-       
-  </div>
-  <div class="flex-row">
-    <div class="temp">
-     
-      <span class="lable">Current</span>
-      <button mat-button class="btn3">Primary</button>
-    </div>
-   
-</div>
-<div class="flex-row">
-    <div class="temp">
-     
-      <span class="lable">Load</span>
-      <button mat-button class="btn4">Primary</button>
-    </div>
-   
-</div>
-<div class="flex-row">
-    <div class="temp">
-     
-      <span class="lable">Source</span>
-      <button mat-button class="btn5">Primary</button>
-    </div>
-   
-</div>
-    </mat-card-content>
-    <!-- <mat-card-actions>
+
+        </td>
+        <td>
+            <div >
+              <button mat-button class="btn5">Primary</button>
+            </div>
+
+        </td>
+    </tr>
+  
+      </td>
+  
+  
+
+  </tr>
+  </table>
+
+
+  </mat-card-content>
+  <!-- <mat-card-actions>
       <button mat-button>LIKE</button>
       <button mat-button>SHARE</button>
     </mat-card-actions> -->
-  </mat-card>
+</mat-card>

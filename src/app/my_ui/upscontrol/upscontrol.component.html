@@ -1,51 +1,57 @@
-<div style="margin-top: 50px;">
-
-    <form class="control-form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+<div style="margin-top: 50px;margin-left:300px;">
+ 
+ <form class="test-form" [formGroup]="upscontrol" (ngSubmit)="ControlSubmit()">
 
 
         <mat-form-field style="margin-right:20px" appearance="fill">
 
             <mat-label>ShutdownType</mat-label>
-            <mat-select name="ShutdownType" ngModel required #ShutdownType="ngModel">
-                <mat-option value="option">Option</mat-option>
+            <mat-select name="ShutdownType" formControlName="ShutdownType">
+                <mat-option  *ngFor="let element of shutdown" name="option"
+                [value]="element">{{element}}</mat-option>
             </mat-select>
         </mat-form-field>
+
+
+        <mat-form-field style="margin-right:20px" appearance="fill">
+
+        <mat-label>AutoRestart</mat-label>
+            <mat-select name="AutoRestart" formControlName="AutoRestart">
+                <mat-option *ngFor="let element of autoRestart" name="option"
+                placeholder="element"
+                [value]="element">{{element}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <br>
 
         <mat-form-field style="margin-right:20px" appearance="fill">
 
             <mat-label>ShutdownAfterDelay</mat-label>
-            <mat-select name="ShutdownAfterDelay" ngModel required #ShutdownAfterDelay="ngModel">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
+                <input formControlName="ShutdownAfterDelay" matInput placeholder="ShutdownAfterDelay"
+                [(ngModel)]="defulte.shutdownAfterDelaySec" [formControl]="readCtrldata">
         </mat-form-field>
 
 
         <mat-form-field style="margin-right:20px" appearance="fill">
 
             <mat-label>Startup</mat-label>
-            <mat-select name="Startup" ngModel required #Startup="ngModel">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
+            <input formControlName="Startup" matInput placeholder="Startup" 
+            [(ngModel)]="defulte.autoRestart" [formControl]="readCtrldata">
         </mat-form-field>
         <br>
 
         <mat-form-field style="margin-right:20px" appearance="fill">
 
             <mat-label>Reboot</mat-label>
-            <mat-select name="Reboot" ngModel required #Reboot="ngModel">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
+                <input formControlName="Reboot" matInput placeholder="Reboot" 
+                [(ngModel)]="defulte.rebootWithDurationSec" [formControl]="readCtrldata">
         </mat-form-field>
 
-        <mat-form-field style="margin-right:20px" appearance="fill">
 
-            <mat-label>AutoRestart</mat-label>
-            <mat-select name="AutoRestart" ngModel required #AutoRestart="ngModel">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
-        </mat-form-field>
 
-        <button style="margin-left:0px" mat-raised-button color="primary" type="submit">Submit</button>
+        <button style="margin-left:0px" mat-raised-button color="primary" type="submit">Submit</button> 
+		<button  [formControl]="readCtrldata" (click)="edite()">edite</button>
 
 
 

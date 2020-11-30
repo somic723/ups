@@ -79,6 +79,7 @@ import { Batteryinfo2Component } from './my_ui/dash/ups2/batteryinfo2/batteryinf
 import { Temp2Component } from './my_ui/dash/ups2/temp2/temp2.component';
 import { Status2Component } from './my_ui/dash/ups2/status2/status2.component';
 import { Status1Component } from './my_ui/dash/ups1/status1/status1.component';
+import { RebootComponent } from './my_ui/reboot/reboot.component';
 
 
 function load(http: HttpClient, service: SettingsService): (() => Promise<boolean>) {
@@ -120,8 +121,8 @@ function load(http: HttpClient, service: SettingsService): (() => Promise<boolea
      Batteryinfo2Component,
      Temp2Component,
      Status2Component,
-     Status1Component
-
+     Status1Component,
+     RebootComponent
   ],
   imports: [
     CommonModule,

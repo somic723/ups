@@ -1,97 +1,101 @@
 <div style="margin-top: 10px;">
 
 
-    <form class="config-form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <form class="config-form" [formGroup]="upsconfig" (ngSubmit)="configSubmit()">
 
 
         <mat-form-field style="margin-right:20px" appearance="fill">
 
             <mat-label>InputPutVolt</mat-label>
-            <mat-select name="InputPutVolt" ngModel required #InputPutVolt="ngModel">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
+            <input formControlName="InputPutVolt" matInput placeholder="InputPutVolt"
+            [(ngModel)]="config.inputVoltageV" [formControl]="readConf" >
         </mat-form-field>
 
         <mat-form-field style="margin-right:20px" appearance="fill">
-
-            <mat-label>InputPutFreq</mat-label>
-            <mat-select name="InputPutFreq" ngModel required #InputPutFreq="ngModel">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
+        
+        <mat-label>InputPutFreq</mat-label>
+            <input formControlName="InputPutFreq" matInput placeholder="InputPutFreq" 
+            [(ngModel)]="config.inputFreqHz" [formControl]="readConf">
         </mat-form-field>
-
+     
         <mat-form-field style="margin-right:20px" appearance="fill">
 
-            <mat-label>OutPutVolt</mat-label>
-            <mat-select name="OutPutVolt" ngModel required #OutPutVolt="ngModel">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
+        <mat-label>OutPutVolt</mat-label>
+            <input formControlName="OutPutVolt" matInput placeholder="OutPutVolt" 
+            [(ngModel)]="config.outputVoltageV" [formControl]="readConf">
         </mat-form-field>
+
+
+       
 
         <mat-form-field style="margin-right:20px" appearance="fill">
 
             <mat-label>OutPutFreq</mat-label>
-            <mat-select name="OutPutFreq" ngModel required #OutPutFreq="ngModel">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
+            <input formControlName="OutPutFreq" matInput placeholder="OutPutFreq" 
+            [(ngModel)]="config.outputFreqHz" [formControl]="readConf">
+
         </mat-form-field>
+
+
+      
 
         <mat-form-field style="margin-right:20px" appearance="fill">
             <mat-label>LowBatt</mat-label>
-            <mat-select name="LowBatt" ngModel required #LowBatt="ngModel">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
+            <input formControlName="LowBatt" matInput placeholder="LowBatt" 
+            [(ngModel)]="config.lowBattTime" [formControl]="readConf">
         </mat-form-field>
+<br>
+
+
+
 
         <mat-form-field style="margin-right:20px" appearance="fill">
 
             <mat-label>LowVolt</mat-label>
-            <mat-select name="LowVolt" ngModel required #LowVolt="ngModel">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
+            <input formControlName="LowVolt" matInput placeholder="LowVolt" 
+            [(ngModel)]="config.lowVoltageTransferPointV" [formControl]="readConf">
         </mat-form-field>
+
+
 
         <mat-form-field style="margin-right:20px" appearance="fill">
 
             <mat-label>HighVolt</mat-label>
-            <mat-select name="HighVolt" ngModel required #HighVolt="ngModel">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
+            <input formControlName="HighVolt" matInput placeholder="HighVolt" 
+            [(ngModel)]="config.highVoltageTransferPointV" [formControl]="readConf">
+
+        </mat-form-field>
+
+
+    
+
+        <mat-form-field style="margin-right:20px" appearance="fill">
+
+        <mat-label>BattCapacity</mat-label>
+            <input formControlName="BattCapacity" matInput placeholder="BattCapacity"
+            [(ngModel)]="config.batteryCapacity" [formControl]="readConf">
         </mat-form-field>
 
         <mat-form-field style="margin-right:20px" appearance="fill">
 
-            <mat-label>BattCapacity</mat-label>
-            <mat-select name="BattCapacity" ngModel required #BattCapacity="ngModel">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <mat-form-field style="margin-right:20px" appearance="fill">
-
-            <mat-label>OutPutVA</mat-label>
-            <mat-select name="OutPutVA" ngModel required #OutPutVA="ngModel">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
+        <mat-label>OutPutVA</mat-label>
+            <input formControlName="OutPutVA" matInput placeholder="OutPutVA" 
+            [(ngModel)]="config.outputVa" [formControl]="readConf" >
         </mat-form-field>
 
 
         <mat-form-field appearance="fill">
 
             <mat-label>OutPutPower</mat-label>
-            <mat-select name="OutPutPower" ngModel required #OutPutPower="ngModel">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <input formControlName="OutPutPower" matInput placeholder="OutPutPower"
+            [(ngModel)]="config.outputPower" [formControl]="readConf" >
 
-        <mat-form-field appearance="fill">
-
-            <mat-label>AudibleStatus</mat-label>
-            <mat-select name="AudibleStatus" ngModel required #AudibleStatus="ngModel">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
         </mat-form-field>
+        <br>
+
+
         <button style="margin-left:20px;" mat-raised-button color="primary" type="submit">Submit</button>
+		<button  [formControl]="readConf" (click)="edite()">edite</button>
 
     </form>
 

@@ -1,9 +1,11 @@
 <div class="grid-container">
 
-  <mat-grid-list cols="6" rowHeight="110px">
+  <mat-grid-list cols="6" rowHeight="130px">
+
     <mat-grid-tile colspan="1" rowspan="1">
       <app-temp1></app-temp1>
     </mat-grid-tile>
+
     <mat-grid-tile colspan="1" rowspan="1">
       <app-battery1></app-battery1>
     </mat-grid-tile>
@@ -11,6 +13,7 @@
     <mat-grid-tile colspan="1" rowspan="3" style="background-color:transparent;">
       <app-input1></app-input1>
     </mat-grid-tile>
+    
     <mat-grid-tile colspan="1" rowspan="3" style="background-color:transparent">
       <app-output1></app-output1>
 
@@ -31,41 +34,17 @@
   </mat-grid-list>
 
   <mat-divider></mat-divider>
-  <mat-divider></mat-divider>
-  <mat-divider></mat-divider>
 
 
-  <mat-grid-list cols="6" rowHeight="110px">
+  <mat-grid-list cols="1" style="margin: 40px;" rowHeight="410px">
 
 
-    <mat-grid-tile colspan="1" rowspan="1">
-      <app-temp2></app-temp2>
+    <mat-grid-tile>
+      <app-alarmtable></app-alarmtable>
     </mat-grid-tile>
 
 
-    <mat-grid-tile colspan="1" rowspan="1">
-      <app-battery2></app-battery2>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="1" rowspan="3" style="background-color:transparent;">
-      <app-input2></app-input2>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="1" rowspan="3" style="background-color:transparent">
-      <app-output2></app-output2>
-
-    </mat-grid-tile>
-    <mat-grid-tile colspan="1" rowspan="3" style="background-color:transparent;">
-      <app-bypassput2></app-bypassput2>
-
-    </mat-grid-tile>
-        <mat-grid-tile colspan="1" rowspan="3" style="background-color:transparent;">
-        <app-status2></app-status2>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan="2" rowspan="2">
-          <app-batteryinfo2></app-batteryinfo2>
-    
-        </mat-grid-tile>
+  
   </mat-grid-list>
 
 

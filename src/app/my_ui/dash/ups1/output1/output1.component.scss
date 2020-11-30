@@ -3,11 +3,11 @@
     // background: rgb(8,240,39);
     // background: linear-gradient(0deg, rgba(8,240,39,1) 0%, rgba(72,46,204,1) 100%);
     background: rgb(245,245,245);
-background: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(164,105,9,1) 100%);
+    background: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(164,105,9,1) 100%);
 }
   
   .mat-card::ng-deep.mat-card-header-text {
-    height: 130px;
+    height: 120px;
     width: 190px
   }
   .subtitle{
@@ -28,31 +28,36 @@ background: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(164,105,9,1) 100%
   }
   .btn1{
     background-color:green ;
-    margin-left:70px;
     margin-top: 3px;
+    width: 80px;
+  
   }
   .btn2{
     background-color:gray ;
-    margin-left:95px;
     margin-top: 3px;
+    width: 80px;
+  
+  
   
   }
   .btn3{  
     background-color:green ;
-    margin-left: 15px;
-    margin-left:90px;
     margin-top: 3px;
+    width: 80px;
   
   }
   .btn4{
     background-color:yellow ;
-    margin-left:105px;
     margin-top: 3px;
+    width: 80px;
+  
   
   }
   .btn5{
-    background-color:red ;
-    margin-left:92px;
+    background-color:yellow ;
     margin-top: 3px;
+    width: 80px;
+  
   
   }
+  
