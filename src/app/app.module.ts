@@ -80,6 +80,7 @@ import { Temp2Component } from './my_ui/dash/ups2/temp2/temp2.component';
 import { Status2Component } from './my_ui/dash/ups2/status2/status2.component';
 import { Status1Component } from './my_ui/dash/ups1/status1/status1.component';
 import { RebootComponent } from './my_ui/reboot/reboot.component';
+import { DialogBoxComponent } from './my_ui/dialog-box/dialog-box.component';
 
 
 function load(http: HttpClient, service: SettingsService): (() => Promise<boolean>) {
@@ -122,7 +123,8 @@ function load(http: HttpClient, service: SettingsService): (() => Promise<boolea
      Temp2Component,
      Status2Component,
      Status1Component,
-     RebootComponent
+     RebootComponent,
+     DialogBoxComponent
   ],
   imports: [
     CommonModule,

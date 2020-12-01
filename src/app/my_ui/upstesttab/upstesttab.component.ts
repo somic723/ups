@@ -29,10 +29,14 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
+  { position: 1, name: 'donePass(1)', weight: 1.0079, symbol: 'The test has been completed succesfully' },
+  { position: 2, name: 'doneWarning(2)', weight: 4.0026, symbol: 'The test has been executed but a warning has been returned.Depending on the type of UPS monitored,detailed information of this warning is given by TestResultsDetail' },
+  { position: 3, name: 'doneError(3)', weight: 6.941, symbol: 'The test has been executed but a warning has been returned. Depending on the type of UPS monitored, detailed information of this error given by TestresultsDetail' },
+  { position: 4, name: 'abroted(4)', weight: 9.0122, symbol: 'The test has been aborted by the user' },
+  { position: 4, name: 'inProgress(5)', weight: 9.0122, symbol: 'A test is currently running' },
+  { position: 4, name: 'noTestInitiated(6)', weight: 9.0122, symbol: 'No previous test results are available' },
+
+
 ];
 
 
@@ -99,7 +103,7 @@ spinnerButtonOptions: MatProgressButtonOptions = {
 
 
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['name', 'symbol'];
   dataSource = ELEMENT_DATA;
 
   testdatacource: test[];

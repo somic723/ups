@@ -15,6 +15,40 @@ export class MyTelegramService {
     private http: HttpClient
   ) { }
 
+
+//#region connect
+  getlist(){
+    return this.telegramService.send({
+      telId: 1125, telData: {
+      }
+  
+    });
+  
+  }
+  addlist(value:any){
+    console.log(value)
+    return this.telegramService.send({
+      telId: 1126, telData: 
+        value
+  
+  
+    });
+  
+  }
+
+
+  deletitemfromlist(value:any){
+    console.log(value)
+    return this.telegramService.send({
+      telId: 1127, telData:{"hostId":value}
+
+  
+    });
+  
+  }
+//#endregion
+
+
 //#region testups
   gettest() {
     console.log("start service 1111")
@@ -148,3 +182,6 @@ configSubmit(value: any) {
 
 }
 //#endregion
+
+
+
