@@ -102,7 +102,11 @@ errorFromBackEnd:string=''
   addlist(add: host) {
     console.log("start tel 1126")
     this.TelService.addlist(add).subscribe(res => {
+<<<<<<< HEAD
       if (res.telData.requestTelData==="") {
+=======
+      if (res.telData.stackTrace==="") {
+>>>>>>> 29d67876109c3d5db583f2b22e89393490b46fde
         console.log(res.telData.message);
         this.errorFromBackEnd=res.telData.message;
       }
