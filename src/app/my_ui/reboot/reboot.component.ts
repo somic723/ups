@@ -43,7 +43,7 @@ export class RebootComponent implements OnInit {
       console.log("start tel 1117")
       this.TelService.savesetting(this.descriptions).subscribe(res => {
         console.log(res.telData)
-        if (res.telData.requestTelData=null) {
+        if (res.telData.stackTrace) {
 
         console.log(res.telData.message);
         this.errorFromBackEnd=res.telData.message;
@@ -53,6 +53,8 @@ export class RebootComponent implements OnInit {
         }
         else {
           console.log(res.telData)
+          this.errorFromBackEnd='';
+
         }
       });
     
@@ -72,8 +74,27 @@ export class RebootComponent implements OnInit {
       this.descriptions = result;
       console.log(this.descriptions)
 
+      console.log("start tel 1119")
+      this.TelService.rebootsetting(this.descriptions).subscribe(res => {
+        console.log(res.telData)
+        if (res.telData.stackTrace) {
+
+        console.log(res.telData.message);
+        this.errorFromBackEnd=res.telData.message;
+
+        console.log('erorr')
+        console.log( this.errorFromBackEnd);
+        }
+        else {
+          console.log(res.telData)
+          this.errorFromBackEnd='';
+
+        }
+      });
+    
     });
   }
+
 
   openDefaultDialog(): void {
     const dialogRef = this.dialog.open(DefultComponent, {
@@ -84,10 +105,27 @@ export class RebootComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.descriptions = result;
-      console.log(this.descriptions)
+      console.log("start tel 1123")
+      this.TelService.defaultsetting(this.descriptions).subscribe(res => {
+        console.log(res.telData)
+        if (res.telData.stackTrace) {
 
+        console.log(res.telData.message);
+        this.errorFromBackEnd=res.telData.message;
+
+        console.log('erorr')
+        console.log( this.errorFromBackEnd);
+        }
+        else {
+          console.log(res.telData)
+          this.errorFromBackEnd='';
+
+        }
+      });
+    
     });
   }
+
   ngOnInit(): void {
   }
 

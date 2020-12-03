@@ -82,13 +82,10 @@ import { Status1Component } from './my_ui/dash/ups1/status1/status1.component';
 import { RebootComponent } from './my_ui/reboot/reboot.component';
 import { VmComponent } from './my_ui/upsconnect/vm/vm.component';
 import { DialogBoxComponent } from "./my_ui/upsconnect/dialog-box/dialog-box.component";
-<<<<<<< HEAD
 import { MatDialogModule } from '@angular/material/dialog';
 import { SaveComponent } from './my_ui/reboot/save/save.component';
 import { SaveRebootComponent } from './my_ui/reboot/save-reboot/save-reboot.component';
 import { DefultComponent } from './my_ui/reboot/defult/defult.component';
-=======
->>>>>>> 29d67876109c3d5db583f2b22e89393490b46fde
 
 
 function load(http: HttpClient, service: SettingsService): (() => Promise<boolean>) {
@@ -133,14 +130,10 @@ function load(http: HttpClient, service: SettingsService): (() => Promise<boolea
      Status1Component,
      RebootComponent,
      DialogBoxComponent,
-<<<<<<< HEAD
      VmComponent,
      SaveComponent,
      SaveRebootComponent,
      DefultComponent
-=======
-     VmComponent
->>>>>>> 29d67876109c3d5db583f2b22e89393490b46fde
   ],
   imports: [
     CommonModule,

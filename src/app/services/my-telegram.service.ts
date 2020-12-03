@@ -106,6 +106,25 @@ savesetting(value:string) {
   });
 }
 
+rebootsetting(value:string) {
+  return this.telegramService.send({
+    
+    telId: 1119, telData: {
+      "result": value
+    }
+
+  });
+}
+
+defaultsetting(value:string) {
+  return this.telegramService.send({
+    
+    telId: 1123, telData: {
+      "result": value
+    }
+
+  });
+}
 
 //#endregion
 
