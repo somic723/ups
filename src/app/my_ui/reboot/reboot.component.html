@@ -6,15 +6,18 @@
 
 
     <mat-grid-tile>
-<button mat-mini-fab  class="btn-grad">
+<button mat-mini-fab (click)="openSaveDialog()"  class="btn-grad">
  Save
   </button>
 
-  <button mat-mini-fab  class="btn-grad1">
-    Save & Reboot
+  <button mat-mini-fab (click)="openRebootDialog()" class="btn-grad1">
+    Reboot
      </button>
-     <button mat-mini-fab  class="btn-grad2">
-        Reload
+     <button mat-mini-fab (click)="openDefaultDialog()" class="btn-grad2">
+      Default Setting
          </button>
+         <label class="labelErorr">{{errorFromBackEnd}}</label>
+
   </mat-grid-tile>
+
   </mat-grid-list>

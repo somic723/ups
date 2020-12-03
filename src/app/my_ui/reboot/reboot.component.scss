@@ -25,16 +25,14 @@
    }
   
 
+   .btn-grad1 {background-image: linear-gradient(to right, #870000 0%, #190A05  51%, #870000  100%)}
+   .btn-grad1 {
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    font-size: 20px;
 
-
-   
-   .btn-grad1 {background-image: linear-gradient(to right, #134E5E 0%, #71B280  51%, #134E5E  100%)}
-   .btn-grad1{
-      margin: 10px;
-      width: 200px;
-      height: 200px;
-      border-radius: 100px;
-      font-size: 15px;
       padding: 15px 45px;
       text-align: center;
       text-transform: uppercase;
@@ -53,6 +51,10 @@
    
 
 
+   
+ 
+
+
 
     
  
@@ -62,7 +64,7 @@
         width: 200px;
         height: 200px;
         border-radius: 100px;
-        font-size: 20px;
+        font-size: 15px;
 
        padding: 15px 45px;
        text-align: center;
@@ -80,4 +82,7 @@
        text-decoration: none;
      }
     
-    
+     .labelErorr{
+      color: red;
+      margin-left: 20%;
+    }

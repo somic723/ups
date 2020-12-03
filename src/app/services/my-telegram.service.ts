@@ -95,7 +95,19 @@ getOutputStatus() {
 //#endregion
 
 
+//#region setting
+savesetting(value:string) {
+  return this.telegramService.send({
+    
+    telId: 1117, telData: {
+      "result": value
+    }
 
+  });
+}
+
+
+//#endregion
 
 //#region bypass
 bypassStatus() {

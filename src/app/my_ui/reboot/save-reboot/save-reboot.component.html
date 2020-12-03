@@ -1,0 +1,12 @@
+<img style="margin-left: 35%;height:40px;width:40px;" src="../../../../assets/image/warning.png"/>
+<div mat-dialog-content>
+  <p>Do You Want Reboot Setting?</p>
+  <mat-form-field>
+    <mat-label>Your Descriptions:</mat-label>
+    <input matInput [(ngModel)]="data.descriptions">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.descriptions" cdkFocusInitial>Ok</button>
+</div>

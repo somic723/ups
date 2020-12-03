@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>Row Action :: <strong>{{action}}</strong></h1>
+<div mat-dialog-content>
+
+
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} Name" matInput [(ngModel)]="local_data.hostName">
+</mat-form-field>
+
+<mat-form-field *ngIf="action != 'Delete';">
+    <input placeholder="{{action}} Ip" matInput [(ngModel)]="local_data.ipaddress">
+</mat-form-field>
+
+<mat-form-field *ngIf="action != 'Delete';">
+    <input placeholder="{{action}} User" matInput [(ngModel)]="local_data.userName">
+</mat-form-field>
+
+<mat-form-field *ngIf="action != 'Delete'; ">
+    <input placeholder="{{action}} Pass" matInput [(ngModel)]="local_data.password">
+</mat-form-field>
+
+
+<mat-form-field *ngIf="action != 'Delete';">
+    <input placeholder="{{action}} RemainingChargePercentage" matInput [(ngModel)]="local_data.remainingChargePecent">
+</mat-form-field>
+
+<mat-form-field *ngIf="action != 'Delete';">
+    <input placeholder="{{action}} RemainingChargeMinutes" matInput [(ngModel)]="local_data.remainingChargeMinute">
+</mat-form-field>
+
+<mat-form-field *ngIf="action != 'Delete';">
+    <input placeholder="{{action}} order" matInput [(ngModel)]="local_data.shutdownOrder">
+</mat-form-field>
+
+
+
+
+
+  <ng-template #elseTemplate>
+    Sure to delete <b>{{local_data.hostName}}</b>?
+  </ng-template>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>
